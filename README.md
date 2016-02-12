@@ -2,7 +2,7 @@
 
 [![Build Status][travis-badge]][travis] [![Test Coverage][testCoverage-badge]][testCoverage] [![Code Climate][codeClimate-badge]][codeClimate] [![Dependency Status][dependency-badge]][dependency] [![Security][security-badge]][security]
 
-[Live Website]() (Initial load may be slow as Free Dynos needs to sleep.[(More Information)](https://www.heroku.com/pricing).)
+[Live Website](https://deovandski.herokuapp.com/) (Initial load may be slow as Free Dynos needs to sleep.[(More Information)](https://www.heroku.com/pricing).)
 
 ## Requirements
 
