@@ -16,4 +16,4 @@ script:
 - bundle exec rake test
 addons:
   code_climate:
-    repo_token: 
+    repo_token: 5d52a9f74dc6c00b8b310bd793c41479d4cbab3750ef73f6ef3556f68853256d
