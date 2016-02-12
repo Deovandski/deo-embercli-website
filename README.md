@@ -1,8 +1,8 @@
 ## README
 
-[![Build Status][travis-badge]][travis] [![Test Coverage][testCoverage-badge]][testCoverage] [![Code Climate][codeClimate-badge]][codeClimate] [![Dependency Status][dependency-badge]][dependency] [![Security][security-badge]][security] [![Docs][docs-badge]][docs]
+[![Build Status][travis-badge]][travis] [![Test Coverage][testCoverage-badge]][testCoverage] [![Code Climate][codeClimate-badge]][codeClimate] [![Dependency Status][dependency-badge]][dependency] [![Security][security-badge]][security]
 
-[Live Website]() (Initial will be slow due to Dyno sleep mode implemented by Heroku [(More Information)](https://www.heroku.com/pricing).)
+[Live Website]() (Initial load may be slow as Free Dynos needs to sleep.[(More Information)](https://www.heroku.com/pricing).)
 
 ## Requirements
 
@@ -37,5 +37,3 @@ Copyright (c) 2016, Deovandski Skibinski Junior. All rights reserved to the code
 [security-badge]: https://hakiri.io/github/Deovandski/DeoPersonalWebsite/master.svg
 [dependency]: https://gemnasium.com/Deovandski/DeoPersonalWebsite
 [dependency-badge]: https://gemnasium.com/Deovandski/DeoPersonalWebsite.svg
-[docs]: http://inch-ci.org/github/deovandski/deopersonalwebsite/branch/master
-[docs-badge]: https://inch-ci.org/github/deovandski/deopersonalwebsite.svg?branch=master

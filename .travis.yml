@@ -21,3 +21,5 @@ install:
 
 script:
   - npm test
+after_script:
+  - codeclimate-test-reporter < lcov.dat
