@@ -1,16 +1,23 @@
-language: ruby
+---
+language: node_js
+node_js:
+  - "0.12"
+
 sudo: false
-cache: bundler
-branches:
-  only:
-  - master
-rvm:
-- 2.3.0
-before_script:
-- bundle exec rake db:migrate
-- bundle exec rake db:seed
+
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
+  - "npm config set spin false"
+  - "npm install -g npm@^2"
+
+install:
+  - npm install -g bower
+  - npm install
+  - bower install
+
 script:
-- bundle exec rake test
-addons:
-  code_climate:
-    repo_token: 5d52a9f74dc6c00b8b310bd793c41479d4cbab3750ef73f6ef3556f68853256d
+  - npm test

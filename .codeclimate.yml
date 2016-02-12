@@ -1,37 +1,29 @@
 engines:
   rubocop:
-    enabled: true
+    enabled: false
   golint:
     enabled: true
   gofmt:
     enabled: true
   eslint:
-    enabled: false
-  csslint:
-    enabled: false
-  bundler-audit:
     enabled: true
+  csslint:
+    enabled: true
+  bundler-audit:
+    enabled: false
 ratings:
   paths:
     - "app/**"
-    - "bin/**"
     - "config/**"
-    - "db/**"
-    - "frontend/**"
-    - "lib/**"
-    - "test/**"
+    - "dist/**"
+    - "tests/**"
 exclude_paths:
-- app/assets/images/**/*
 - Documents/**/*
-- db/**/*
 - bourbon/**/*
 - neat/**/*
 - node_modules/**/*
-- frontend/bower_components/**/*
-- frontend/node_modules/**/*
-- frontend/dist/**/*
-- frontend/vendor/**/*
-- public/**/*
+- bower_components/**/*
+- dist/**/*
 - vendor/**/*
-- "db/schema.rb"
+- vendor/**/*
 - "README.md"
