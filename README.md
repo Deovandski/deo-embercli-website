@@ -4,12 +4,22 @@
 
 [Live Website]() (Initial will be slow due to Dyno sleep mode implemented by Heroku [(More Information)](https://www.heroku.com/pricing).)
 
-//TODO
-
 ## Requirements
 
-1. [Ruby](https://www.ruby-lang.org/en/)
-2. [Bundler](http://bundler.io/)
+1. [Node.js](https://nodejs.org/)
+2. [Npm](https://www.npmjs.com/)
+3. [Ember CLI](http://ember-cli.com/)
+3. [Bower](https://www.npmjs.com/package/bower)
+
+## Installation
+
+1. Clone Project
+2. Install NPM, Bower and other requirements if you don't have them (may have to use sudo):
+	1. apt-get install npm
+	2. npm install -g bower
+	3. npm install -g ember-cli
+6. npm install
+7. bower install
 
 ## License
 
