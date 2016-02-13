@@ -6,8 +6,12 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  // Admin and Super User related
-  this.route('test', { path: '/test' });
+  // Website related
+  this.route('header');
+  this.route('footer');
+  this.route('about');
+
+  // Projects related
 });
 
 export default Router;

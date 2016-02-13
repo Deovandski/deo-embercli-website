@@ -1,8 +1,10 @@
-## README
+## Deo's Personal Website
 
 [![Build Status][travis-badge]][travis] [![Test Coverage][testCoverage-badge]][testCoverage] [![Code Climate][codeClimate-badge]][codeClimate] [![Dependency Status][dependency-badge]][dependency] [![Security][security-badge]][security]
 
-[Live Website](https://deovandski.herokuapp.com/) (Initial load may be slow as Free Dynos needs to sleep.[(More Information)](https://www.heroku.com/pricing).)
+[Live Website](https://deovandski.herokuapp.com/) (Initial load may be slow as Free Dynos needs to sleep[(More Information)](https://www.heroku.com/pricing).)
+
+This website was created for the purpose to host all kinds of stuff about myself including any code or small project that I created over the years...
 
 ## Requirements
 
