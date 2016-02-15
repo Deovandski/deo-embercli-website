@@ -11,6 +11,13 @@
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/deo-personal-website.css">
+	
+	<!-- SHIMS AND OTHER RESOURCES -->
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<link rel="icon" href="public/favicon.ico" type="image/x-icon" />
+	<link rel="icon" type="image/png" href="public/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="public/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="public/favicon-96x96.png" sizes="96x96">
 
     {{content-for "head-footer"}}
   </head>
@@ -19,7 +26,12 @@
 
     <script src="assets/vendor.js"></script>
     <script src="assets/deo-personal-website.js"></script>
-
+	<noscript>
+		<div class="honest_nojs_message">
+		    <h1>You can't do jack shit on this website without Javascript...</h1>
+			<h3>Visit <a href ="http://www.enable-javascript.com/">enable-javascript.com</a> or search on Google (or bing because why the fuck not?) about how to enable JS.</h3>
+		</div>    
+	</noscript>
     {{content-for "body-footer"}}
   </body>
 </html>
