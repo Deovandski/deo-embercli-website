@@ -1,36 +1,44 @@
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-      </button>
-      <a class="navbar-brand" href="#">Deo's Web</a>
-    </div>
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			</button>
+			{{#link-to 'index' class="navbar-brand"}}Deo's Website{{/link-to}}
+		</div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">TODO</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SASS Tutorial <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Deo's Space Program <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ember CLI Tutorial <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li>{{#link-to 'emberTutorial'}}Tutorial Page{{/link-to}}</li>
+						<li role="separator" class="divider"></li>
+						<li>{{#link-to 'emberTutorial.installation'}}Installing Requirements{{/link-to}}</li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SASS Tutorial <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li>{{#link-to 'sassTutorial'}}Tutorial Page{{/link-to}}</li>
+						<li role="separator" class="divider"></li>
+						<li>{{#link-to 'sassTutorial.installation'}}Installing Requirements{{/link-to}}</li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Deo's Space Program <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li>{{#link-to 'deoSpaceProgram'}}DSP HomePage{{/link-to}}</li>
+						<li role="separator" class="divider"></li>
+						<li>{{#link-to 'deoSpaceProgram.history'}}History{{/link-to}}</li>
+						<li>{{#link-to 'deoSpaceProgram.kerbals'}}Kerbals{{/link-to}}</li>
+						<li>{{#link-to 'deoSpaceProgram.missions'}}Missions{{/link-to}}</li>
+						<li>{{#link-to 'deoSpaceProgram.achievements'}}Achievements{{/link-to}}</li>
+						<li>{{#link-to 'deoSpaceProgram.future'}}Future{{/link-to}}</li>
+						<li>{{#link-to 'deoSpaceProgram.copyright'}}Copyright{{/link-to}}</li>
+					</ul>
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
 </nav>
