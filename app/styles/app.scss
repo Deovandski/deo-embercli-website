@@ -1,58 +1,6 @@
-$navbar-default-bg: hsla(186, 100%, 50%, 0.31);
-$light-orange: #ff8c00;
-$navbar-default-color: $light-orange;
+
+$navbar-default-bg: hsla(186, 100%, 50%, 0.7);
 
 @import "bootstrap";
-@import "bootstrap/theme";
+@import "globals";
 
-html,body{
-    height: 100%
-}
-main-container{
-	bottom:50px;
-}
-footer {
-	padding: 0.2em 0;
-	font-family: 'Questrial', sans-serif;
-	position:absolute;
-	height: 50px;
-	bottom:0;
-	right:0px;
-	left:0px;
-	width:100%;
-	background-color: hsla(186, 100%, 50%, 0.31);
-	.outer-container {
-		width: 100%;
-	}
-	nav {
-		float: left;
-	}
-	ul {
-		display: block;
-		list-style-type: none;
-		padding: 0;
-	}
-	li {
-	display: inline-block;
-		a {
-			color: #aaa;
-			display: inline-block;
-			font-size: 14px;
-			letter-spacing: 1px;
-			padding: 10px;
-			text-decoration: none;
-			&:hover {
-				color: #888;
-			}
-		}
-	}
-	label {
-		color: #aaa;
-		display: inline-block;
-		font-size: 14px;
-		letter-spacing: 1px;
-		padding: 10px;
-		text-decoration: none;
-		float: right;
-	}
-}
