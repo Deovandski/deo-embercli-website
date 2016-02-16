@@ -1,3 +1,9 @@
+// Site Wide variables
+
+$header-font-color: hsla(229, 51%, 14%, 1);
+$footer-font-color: hsla(239, 51%, 11%, 1);
+$header-bg-color: hsla(186, 100%, 50%, 0.7);
+$default-border-color: hsla(186, 100%, 50%, 1);
 
 html {
 	position: relative;
@@ -8,11 +14,29 @@ body {
 	margin-bottom: 50px;
 }
 
-.navbar {
-    margin-bottom: -20px; // Solve the whitespace navbar issue.
+// Header Navbar customization
+#navbar {
+	// Solves the whitespace navbar issue.
+    margin-bottom: -20px;
+	// Change colors around to match the site theme.
+	background-color: $header-bg-color;
+	border-color: $default-border-color;
+	.nav > li > a { 
+		color: $footer-font-color; 
+	}
+	#navbar_brand { 
+		color: darken($footer-font-color,15%); 
+	}
+	.nav > li > a:focus, 
+	.nav > li > a:hover { 
+		background-color: darken($header-bg-color, 20%);
+		color: lighten($header-font-color, 20%);
+	}
 }
 
+
 footer {
+	border-color: $default-border-color;
 	position: absolute;
 	bottom: 0;
 	width: 100%;
@@ -31,7 +55,7 @@ footer {
 	li {
 	display: inline-block;
 		a {
-			color: #aaa;
+			color: $footer-font-color;
 			display: inline-block;
 			font-size: 14px;
 			letter-spacing: 1px;
@@ -43,7 +67,7 @@ footer {
 		}
 	}
 	label {
-		color: #aaa;
+		color: $footer-font-color;
 		display: inline-block;
 		font-size: 14px;
 		letter-spacing: 1px;
