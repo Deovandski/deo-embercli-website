@@ -82,11 +82,18 @@
 		list-style-type: none;
 	}
 	table {
+		caption {
+			text-align: center;
+			margin: 5px;
+		}
+		#table_header {
+			th {
+				text-align: center;
+			}
+		}
 		margin-left: auto;
-		margin-right: auto;       
+		margin-right: auto;   
 		tr {
-			height: 250px;
-			width: 250px;
 			td {
 				height: 250px;
 				width: 250px;
