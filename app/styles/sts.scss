@@ -1,0 +1,80 @@
+// Main Style file for SASS Tutorial STyles
+
+/*
+	Structure: 
+
+	.STS_BG {
+		#STS_header {Shared Style Only}
+		#STS_Main {Page Specific Definitions}
+	}
+*/
+
+// #STS_header Definitions
+
+#STS_header {
+	text-align: center;
+	h1:nth-of-type(1) {
+		color: hsla(192, 100%, 31%, 1);
+		text-shadow: 2px 2px  hsla(189, 93%, 84%, 0.6);
+		text-shadow: 5px 5px  hsla(189, 93%, 5%, 0.7);
+		background: hsla(189, 100%, 0%, 0.6);
+		text-transform: uppercase;
+	}
+	h2:nth-of-type(1) {
+		color: hsla(189, 93%, 84%, 1);
+		text-shadow: 2px 2px  hsla(189, 40%, 50%, 1);
+		background: hsla(189, 100%, 0%, 0.6);
+		letter-spacing: 1px;
+	}
+}
+
+// #STS_main Definitions
+
+#STS_main {
+    padding: 25px;
+    background-clip: content-box;
+	bottom:50px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 125%;
+	section {
+   		padding: 25px;
+	}
+	ul {
+		display: block;
+		list-style-type: none;
+	}
+	table {
+		margin-left: auto;
+		margin-right: auto;       
+		tr {
+			height: 250px;
+			width: 250px;
+			td {
+				height: 250px;
+				width: 250px;
+			}
+		}
+	}
+	.link_info {
+		text-align: center;
+	}
+}
+
+// Background Definitions
+
+
+.STS_BG {
+    background-repeat: no-repeat;
+    background-size: cover;
+	margin: 0px;
+}
+
+#STS_BG_index {
+	// No Background Image
+}
+
+
+
+
+// Specific Page Definitons
+

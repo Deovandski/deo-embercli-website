@@ -1,0 +1,78 @@
+// Main Style file for Deo's Archives
+/*
+	Structure: 
+
+	.DAS_BG {
+		#DAS_header {Shared Style Only}
+		#DAS_Main {Page Specific Definitions}
+	}
+*/
+
+// #DAS_header Definitions
+
+#DAS_header {
+	text-align: center;
+	h1:nth-of-type(1) {
+		color: hsla(21, 83%, 13%, 0.96);
+		text-transform: uppercase;
+	}
+	h2:nth-of-type(1) {
+		color: hsla(226, 51%, 22%, 0.96);
+	}
+}
+
+// #DAS_main Definitions
+
+#DAS_main {
+    padding: 25px;
+    background-clip: content-box;
+	bottom:50px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 125%;
+	section {
+   		padding: 25px;
+	}
+	ul {
+		display: block;
+		list-style-type: none;
+	}
+	table {
+		margin-left: auto;
+		margin-right: auto;       
+		tr {
+			height: 250px;
+			width: 250px;
+			td {
+				height: 250px;
+				width: 250px;
+			}
+		}
+	}
+	.link_info {
+		text-align: center;
+	}
+}
+
+// Background Definitions
+
+
+.DAS_BG {
+    background-repeat: no-repeat;
+    background-size: cover;
+	margin: 0px;
+}
+
+#DAS_BG_index {
+	// No Background Image
+}
+
+// Specific Page Definitons
+
+#archives_favVocaloidslogo {
+	text-align: center;
+}
+
+#archives_favVocaloids_main {
+	text-align: center;
+}
+
