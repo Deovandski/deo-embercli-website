@@ -1,0 +1,75 @@
+// .STS_BG instead Body due to this SASS Tutorial being part of my website instead of it being by itself...
+.STS_BG {
+    background-repeat: no-repeat;
+    background-size: cover;
+	margin: 0px;
+	background-color: $base-body-color;
+	font-family: $base-font-family;
+}
+
+.STS_BG > p {
+  line-height: $base-line-height;
+  margin: 0 0 ($base-line-height * .5);
+}
+
+.STS_BG > a {
+  color: $base-link-color;
+
+  &:hover {
+    color: $hover-link-color;
+  }
+
+  &:active, &:focus {
+    color: $hover-link-color;
+    outline: none;
+  }
+}
+
+.STS_BG > hr {
+  border-bottom: 1px solid $base-border-color;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: $base-line-height 0;
+}
+
+.STS_BG > img {
+  margin: 0;
+  max-width: 100%;
+}
+
+.STS_BG > abbr, .STS_BG > acronym {
+  border-bottom: 1px dotted $base-border-color;
+  cursor: help;
+}
+
+.STS_BG > address {
+  display: block;
+  margin: 0 0 ($base-line-height / 2);
+}
+
+.STS_BG > hgroup {
+  margin-bottom: $base-line-height / 2;
+}
+
+.STS_BG > del {
+  color: lighten($base-font-color, 15);
+}
+
+.STS_BG > pre {
+  font-family: "Menlo", "Monaco", monospace;
+  margin: 0;
+  padding: 0;
+}
+
+.STS_BG > blockquote {
+  border-left: 2px solid $base-border-color;
+  color: lighten($base-font-color, 15);
+  margin: $base-line-height 0;
+  padding-left: $base-line-height / 2;
+}
+
+.STS_BG > cite {
+  color: lighten($base-font-color, 25);
+  font-style: italic;
+}

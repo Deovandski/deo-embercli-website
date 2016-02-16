@@ -1,0 +1,6 @@
+.STS_BG > .code_css {
+	@extend .code;
+	p {
+		color: darken($base-code-color,14%);
+	}
+}

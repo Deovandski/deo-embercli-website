@@ -1,0 +1,21 @@
+.STS_BG > .code {
+	border: 1px solid darken($base-border-color,50%);
+	background-color: $base-body-color;
+	font-family: $code-font-family;
+	font-size: $base-font-size;
+	line-height: $base-line-height / 4;
+	p {
+		margin-top: 2px;
+		margin-bottom: 2px;
+		color: darken($base-code-color,5%);
+	}
+	.indent1 {
+		text-indent: 5em;
+	}
+	.indent2 {
+		text-indent: 10em;
+	}
+	.indent3 {
+		text-indent: 15em;
+	}
+}
