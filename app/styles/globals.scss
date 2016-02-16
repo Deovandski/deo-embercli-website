@@ -1,7 +1,3 @@
-// Site Wide styling
-
-$light-orange: #ff8c00;
-$navbar-default-color: $light-orange;
 
 html {
 	position: relative;
@@ -12,7 +8,11 @@ body {
 	margin-bottom: 50px;
 }
 
-.footer {
+.navbar {
+    margin-bottom: -20px; // Solve the whitespace navbar issue.
+}
+
+footer {
 	position: absolute;
 	bottom: 0;
 	width: 100%;

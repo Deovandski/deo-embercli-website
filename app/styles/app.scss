@@ -1,6 +1,19 @@
+/*	Global Setup: HTML, Body, Header and Footer.
+	
+	Project Style Setup Guidelines (must use <div>):
 
+	XXX_BG {
+		XXX__header {}
+		XXX__main {}
+	}
+*/
+
+// Bootstrap Variables Setup
 $navbar-default-bg: hsla(186, 100%, 50%, 0.7);
-
 @import "bootstrap";
+
+// Other Global Variables and setup.
 @import "globals";
 
+// Project Variables and setup.
+@import "dsp";

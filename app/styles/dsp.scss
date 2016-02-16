@@ -1,0 +1,142 @@
+// Main Style file for Deo's Space Program.
+
+/*
+	Structure: 
+
+	.DSP_BG {
+		#DSP_header {Shared Style Only}
+		#DSP_Main {Page Specific Definitions}
+	}
+*/
+
+// #DSP_header Definitions
+
+#DSP_header {
+	text-align: center;
+	h1:nth-of-type(1) {
+		color: hsla(192, 100%, 31%, 1);
+		text-shadow: 2px 2px  hsla(189, 93%, 84%, 0.6);
+		text-shadow: 5px 5px  hsla(189, 93%, 5%, 0.7);
+		background: hsla(189, 100%, 0%, 0.6);
+		text-transform: uppercase;
+	}
+	h2:nth-of-type(1) {
+		color: hsla(189, 93%, 84%, 1);
+		text-shadow: 2px 2px  hsla(189, 40%, 50%, 1);
+		background: hsla(189, 100%, 0%, 0.6);
+		letter-spacing: 1px;
+	}
+	nav ul {
+		width: auto;
+		li {
+			display: inline-block;
+			margin: 5px;
+			padding: 4px;
+			a {
+				background-color: hsla(189, 27%, 0%, 1);
+				font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+				text-align: center;
+				color: hsla(123, 44%, 46%, 0.93);
+				text-shadow: 2px 2px  hsla(189, 93%, 5%, 1);
+				border: 4px solid hsla(123, 44%, 21%, 0.93);
+				letter-spacing: 1px;
+				margin: inherit;
+				padding: inherit;
+				display: block;
+				list-style-type: none;
+				text-decoration: none;
+				font-size: 125%;
+			}
+			a:hover {
+				border: 4px solid hsla(109, 44%, 73%, 0.95);
+				text-decoration: none;
+			}
+			a:visited {
+				color: hsla(109, 44%, 73%, 0.95);
+				margin: inherit;
+				padding: inherit;
+				text-decoration: none;
+			}
+			a:active, #active {
+				border: 4px solid hsla(109, 44%, 41%, 0.95);
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+// #DSP_main Definitions
+
+#DSP_main {
+    padding: 25px;
+    background: hsla(190, 70%, 60%, 0.97);
+    background-clip: content-box;
+	bottom:50px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 125%;
+	section {
+   		padding: 25px;
+	}
+	ul {
+		display: block;
+		list-style-type: none;
+	}
+	table {
+		margin-left: auto;
+		margin-right: auto;       
+		tr {
+			height: 250px;
+			width: 250px;
+			td {
+				height: 250px;
+				width: 250px;
+			}
+		}
+	}
+	.link_info {
+		text-align: center;
+	}
+}
+
+// Background Definitions
+
+
+.DSP_BG {
+    background-repeat: no-repeat;
+    background-size: cover;
+	margin: 0px;
+}
+
+#DSP_BG_index {
+    background-image: url("http://i.imgur.com/wcfk337.png");
+}
+
+#DSP_BG_history {
+    background-image: url("http://i.imgur.com/oOXT5Sy.png");
+}
+
+#DSP_BG_kerbals {
+    background-image: url("http://i.imgur.com/zBPR2bp.png");
+}
+
+#DSP_BG_missions {
+    background-image: url("http://i.imgur.com/jvU1ztS.png");
+}
+
+#DSP_BG_achievements {
+	background-image: url("http://i.imgur.com/6pSy1Kz.png");
+}
+
+#DSP_BG_future {
+    background-image: url("http://i.imgur.com/lxm4EeI.png");
+}
+
+#DSP_BG_copyright {
+    background-image: url("http://i.imgur.com/aX47gqR.png");
+}
+
+
+
+
+// Specific Page Definitons
+
