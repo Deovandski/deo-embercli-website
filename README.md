@@ -22,6 +22,16 @@ This website was created for the purpose to host all kinds of stuff about myself
 	3. npm install -g ember-cli
 6. npm install
 7. bower install
+7. Change .travis.yml codeclimate repo token to your repo or delete it.
+
+## Ember Cli update
+
+1. Follow Project Update instructions on the choose [Ember Cli Release](https://github.com/ember-cli/ember-cli/releases)
+2. ember install ember-cli-blanket
+3. npm install --save-dev ember-cli-sass
+4. ember install ember-cli-bootstrap-sassy
+
+Something not working after update? Compare diffs and let me know what I missed by opening an issue. 
 
 ## License
 

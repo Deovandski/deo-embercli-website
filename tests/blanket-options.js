@@ -7,10 +7,7 @@ var options = {
   loaderExclusions: [],
   enableCoverage: true,
   cliOptions: {
-    lcovOptions: {
-      outputFile: 'lcov.dat',
-    },
-    reporters: ['lcov'],
+    reporters: ['json'],
     autostart: true
   }
 };
