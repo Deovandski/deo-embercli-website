@@ -9,16 +9,102 @@
 			<img id="inheritance101" height="150" alt="Shared characteristics and individual characteristic are maintained on a parent/child relation" src="http://i.imgur.com/1ZQVdfc.png">
 			<p>Aside receiving the shared characteristics, the child elements (a.k.a the elements that inherit characteristics from the parent) can also override the shared characteristic to customize it even further. An example is the scss declarations for the code, css code and scss codes available below:</p>
 <pre>
-// Parent Element
+.button {
+	background-color: $btn-background-color;
+	border: 1px solid darken($btn-background-color, 2%);
+	border-radius: $base-border-radius;
+	box-shadow: 0 1px 2px rgba(#000, 0.4);
+	color: $btn-text-color;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: bold;
+	outline: none;
+	padding: 0.5em 0.7em;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+	white-space: nowrap;
+
+	&:hover {
+		background-color: lighten($btn-background-color, 10%);
+		border-color: lighten($btn-background-color, 2%);
+		color: $btn-text-color;
+	}
+	&:active {
+		background-color: $btn-background-color;
+		border-color: lighten($btn-background-color, 2%);
+		box-shadow: 0 1px 2px rgba(#000, 0.2);
+		color: $btn-text-color;
+	}
+	&:visited { 
+		color:  darken($btn-text-color, 10%);
+	}
+}
 
 </pre>
-			<p>Now that the parent element has been declared, we will declare the child elements which in this case will override the color of the <b>p</b> tags previously declared.</p>
+			<p>Now that the parent element has been declared, we will declare the child elements which in this case will override characteristics like padding and color:</p>
 <pre>
-// Child Element #1
+.button1 {
+	@extend .button;
+
+}
+</pre>
+<p>This is an example of <label class="button1">Button 1</label></p>
+<pre>
+.button2 {
+	@extend .button;
+	background-color: lighten($btn-background-color, 10%);
+	border: 1px solid darken($btn-background-color, 2%);
+	color: $btn-text-color;
+	padding: 0.2em 0.2em;
+
+	&:hover {
+		background-color: lighten($btn-background-color, 10%);
+		border-color: lighten($btn-background-color, 2%);
+		color: $btn-text-color;
+	}
+	&:active {
+		background-color: $btn-background-color;
+		border-color: lighten($btn-background-color, 2%);
+		box-shadow: 0 1px 2px rgba(#000, 0.2);
+		color: $btn-text-color;
+	}
+	&:visited { 
+		color:  darken($btn-text-color, 10%);
+	}
+}
+</pre>
+<p>This is an example of <label class="button2">Button 2</label></p>
+<pre>
+.button3 {
+	@extend .button;
+	$btn3-bg-color: hsla(170, 82%, 50%, 0.83);
+	background-color: $btn3-bg-color;
+	border: 1px solid darken($btn3-bg-color, 50%);
+	color: hsla(239, 82%, 28%, 1);
+	padding: 0.1em 0.1em;
+
+	&:hover {
+		background-color: lighten($btn-background-color, 10%);
+		border-color: lighten($btn3-bg-color, 2%);
+		color: lighten(hsla(239, 82%, 28%, 1),100%);
+	}
+	&:active {
+		background-color: $btn-background-color;
+		border-color: lighten($btn3-bg-color, 2%);
+		box-shadow: 0 1px 2px rgba(#000, 0.2);
+		color: hsla(239, 82%, 28%, 1);
+	}
+	&:visited { 
+		color:  darken(hsla(239, 82%, 28%, 1), 10%);
+	}
+}
 
 </pre>
-			<p>Inheritance is a great tool, but it is not the last one offered by SASS. It offers much other functionalities such as mixins which are essential when you deal with third-party SCSS code (or commonly named as vendors.) This tutorial is not going to cover it as it becomes much more difficulty to use them when you are not using dependencies management technologies such as Bundler available on Rails projects.</p>
-			{{#link-to 'sassTutorial.more' class="button1"}}I want more!{{/link-to}}
+<p>This is an example of <label class="button3">Button 3</label></p>
+			<p>Inheritance is a great tool, but it is not the last one offered by SASS. It offers much other functionalities such as mixins which are essential when you deal with third-party SCSS code (or commonly named as vendors.) This tutorial is not going to cover it as it becomes much more difficulty to use them when you are not using dependencies management technologies such as Bundler.</p>
+			<p>Wanna learn more? checkout the {{#link-to 'sassTutorial.more' class="button2"}}more{{/link-to}} section of this tutorial or visit the {{#link-to 'emberTutorial.index' class="button3"}}Ember Cli Tutorial{{/link-to}}.</p>
 			</article>
 		</section>
 	</div>
