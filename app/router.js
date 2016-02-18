@@ -22,6 +22,10 @@ Router.map(function() {
 	{
 		this.route('index', { path: '/' });
 		this.route('installation');
+		this.route('importsAndVariables');
+		this.route('inheritance');
+		this.route('nesting');
+		this.route('more');
 	});
 
 	this.route('deoSpaceProgram', function()

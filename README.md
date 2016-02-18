@@ -20,9 +20,14 @@ This website was created for the purpose to host all kinds of stuff about myself
 	1. apt-get install npm
 	2. npm install -g bower
 	3. npm install -g ember-cli
-6. npm install
-7. bower install
-7. Change .travis.yml codeclimate repo token to your repo or delete it.
+3. npm install
+4. bower install
+5. Change .travis.yml codeclimate repo token to your repo or delete it.
+6. Install other dependencies.
+	1. ember install ember-cli-document-title
+	2. npm install --save-dev ember-cli-sass
+	3. ember install ember-cli-bootstrap-sassy
+7. Run ember server
 
 ## Ember Cli update
 
@@ -30,7 +35,8 @@ This website was created for the purpose to host all kinds of stuff about myself
 2. ember install ember-cli-blanket
 3. npm install --save-dev ember-cli-sass
 4. ember install ember-cli-bootstrap-sassy
-5. For Heroku Deployment, you may need to purge the cache with heroku repo:purge_cache -a APPNAME
+5. ember install ember-cli-document-title
+6. For Heroku Deployment, you may need to purge the cache with heroku repo:purge_cache -a APPNAME
 
 Something not working after update? Compare diffs and let me know what I missed by opening an issue. 
 

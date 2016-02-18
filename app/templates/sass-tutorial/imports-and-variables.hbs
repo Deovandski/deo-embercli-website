@@ -1,0 +1,38 @@
+<div id="STS_BG_index" class="STS_BG">
+	<div id="STS_header">
+		<h1>SASS - Imports & Variables</h1>
+	</div>
+	<div id="STS_main">
+		<section>
+			<article>
+			<p>One of the best things offered by SASS is variables, and coupled with imports things get even better!</p>
+			<p>Open the KoalaTest indexStyle.scss and you will see the file below:</p>
+<pre>
+
+</pre>
+			<p>All variables should be declared before using them otherwise errors will show up. However, you are not stuck with a final variable value as SASS allows several methods and calculations to be applied like below:</p>
+<pre>
+
+</pre>
+			<p>These examples are just the beginning of how powerful variables are!</p>
+			<p>However, having only one CSS sheet with all of your declarations and varibles is not a good idea, especially for larger projects. With that, we will follow conventions and setup the test website in the proper way:</p>
+			<ol>
+				<li>Create a new scss file name application.scss</li>
+				<li>Rename indexStyle.scss to _variables.scss</li>
+				<li>Move the after variable declarations to application.scss so that variables only holds variables.</li>
+				<li>Add <strong>@import "variables";</strong> declaration to the beginning  of application.scss</li>
+				<li>Update the index.html css import to application.css</li>
+				<li>Open Koala and either add the KoalaTest project so that the application.scss can be compiled or refresh the project if you have it opened already.</li>
+			</ol>
+			<p>Why _variables.scss instead of variables.scss? It is simple, by appending the underscore to a scss file, you are telling the compiler that it is a partial file which means that something else is the master(s) file(s).</p>
+			<p>Is the updated KoalaTest project working? If not, you can grab a updated version available  <a class="button2" target="_blank" href="https://www.dropbox.com/s/u8fc1a9oq1iyo2v/KoalaTestUpdated.zip?dl=0">Dropbox dowload</a></p>
+			<p>This process may not seen important now, but if you look at the source code for this website, you would see how fundamental it becomes...</p>
+			<p>So far there has been some mentions about nesting, but it is now time to really focus on it!</p>
+			{{#link-to 'sassTutorial.nesting' class="button1"}}Nesting{{/link-to}}	
+			</article>
+		</section>
+	</div>
+</div>
+
+
+
