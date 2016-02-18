@@ -1,9 +1,18 @@
+// Google Fonts
+@import url(http://fonts.googleapis.com/css?family=Poiret+One|Orbitron:500);
+
+// Font Variables
+$poiret-one: 'Poiret One', cursive; 
+$orbitron: 'Orbitron', sans-serif;
+
 // Site Wide variables
 
 $header-font-color: hsla(229, 51%, 14%, 1);
 $footer-font-color: hsla(239, 51%, 11%, 1);
 $header-bg-color: hsla(186, 100%, 50%, 0.7);
 $default-border-color: hsla(186, 100%, 50%, 1);
+
+// Header Navbar customization
 
 html {
 	position: relative;
@@ -14,6 +23,12 @@ body {
 	margin-bottom: 50px;
 }
 
+h1 {
+	font-family: $orbitron;
+}
+h2 {
+	font-family: $poiret-one;
+}
 // Header Navbar customization
 #navbar {
 	// Solves the whitespace navbar issue.

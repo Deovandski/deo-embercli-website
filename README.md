@@ -30,6 +30,7 @@ This website was created for the purpose to host all kinds of stuff about myself
 2. ember install ember-cli-blanket
 3. npm install --save-dev ember-cli-sass
 4. ember install ember-cli-bootstrap-sassy
+5. For Heroku Deployment, you may need to purge the cache with heroku repo:purge_cache -a APPNAME
 
 Something not working after update? Compare diffs and let me know what I missed by opening an issue. 
 
