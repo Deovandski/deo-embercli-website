@@ -12,24 +12,26 @@ Router.map(function() {
 	this.route('about');
 
 	// Projects
-	this.route('emberTutorial', function()
-	{
+	this.route('emberTutorial', function() {
 		this.route('index', { path: '/' });
 		this.route('installation');
 	});
 
-	this.route('sassTutorial', function()
-	{
+	this.route('sassTutorial', function() {
 		this.route('index', { path: '/' });
-		this.route('installation');
+		this.route('installation', function() {
+			this.route('windowsDesktop');
+			this.route('rails');
+			this.route('embercli');
+			this.route('osX');
+		});
 		this.route('importsAndVariables');
 		this.route('inheritance');
 		this.route('nesting');
 		this.route('more');
 	});
 
-	this.route('deoSpaceProgram', function()
-	{
+	this.route('deoSpaceProgram', function() {
 		this.route('index', { path: '/' });
 		this.route('history');
 		this.route('kerbals');
@@ -40,8 +42,7 @@ Router.map(function() {
 	});
 
 	// Archive for standalone websites...
-	this.route('archives', function()
-	{
+	this.route('archives', function() {
 		this.route('index', { path: '/' });
 		this.route('favVocaloidSongs');
 	});

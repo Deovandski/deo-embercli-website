@@ -1,20 +1,28 @@
 <div id="STS_BG_index" class="STS_BG">
 	<div id="STS_header">
 		<h1>Installing SASS</h1>
+		<section>
+		<h2>PLease select your installation method</h2>
+		<nav>
+			<ul>
+				<li>
+					{{#link-to 'sassTutorial.installation.windowsDesktop'}}Windows Desktop{{/link-to}}
+				</li>
+				<li>
+					{{#link-to 'sassTutorial.installation.embercli'}}Ember Cli{{/link-to}}
+				</li>
+				<li>
+					{{#link-to 'sassTutorial.installation.rails'}}Rails{{/link-to}}
+				</li>
+				<li>
+					{{#link-to 'sassTutorial.installation.osX'}}OS X{{/link-to}}
+				</li>
+			</ul>
+		</nav>
+		</section>
 	</div>
 	<div id="STS_main">
-		<section>
-			<article>
-			<p>If you have a Rails project or other web based projects, then most likely SASS and all of its dependencies is automatically taken care of and compiled into CSS when you build your server as long as you declare the required gems.</p>
-			<p>However, this may not be as easy if you are building without the help of such emerging technologies such as Bundler and Ruby on Rails, but don't be afraid! Koala is here to help you!</p>
-			<img id="koalaImg" height="250" alt="Koala Application Logo and Software screenshot" src="http://i.imgur.com/oBoSF6H.png">
-			<p>Koala's main functionality is to be the compiler for SASS and to automatically compile and output errors as you make changes to the tracked scss files as long as it is running on the background. It also gives you an option to remember project locations so that subsequent uses are as painless as possible...</p>
-			<p>In order to make the installation tutorial easier to follow since it is almost a tutorial within a tutorial, I created a Google Slides that can be viewed below or at anytime through this <a class="button2" target="_blank" href="https://docs.google.com/presentation/d/1Z4V_zIuWuJkvAGUxMo5ahwBBeLTw3K7qCylAZVe_YMY/edit?usp=sharing">website</a>.</p>
-			<iframe src="https://docs.google.com/presentation/d/1Z4V_zIuWuJkvAGUxMo5ahwBBeLTw3K7qCylAZVe_YMY/embed" width="700" height="400"></iframe>
-			<p>Did the example website worked as expected? If so, then it is time to start diving deep into scss and learn about imports and variables:</p>
-			{{#link-to 'sassTutorial.importsAndVariables' class="button1"}}Imports and Variables!{{/link-to}}
-			</article>
-		</section>
+		{{outlet}}
 	</div>
 </div>
 
