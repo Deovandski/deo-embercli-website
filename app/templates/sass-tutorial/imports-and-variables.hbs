@@ -1,34 +1,66 @@
-<div id="STS_BG_index" class="STS_BG">
+<div class="STS_BG">
 	<div id="STS_header">
 		<h1>SASS - Imports & Variables</h1>
 	</div>
 	<div id="STS_main">
 		<section>
 			<article>
-			<p>One of the best things offered by SASS is variables, and coupled with imports things get even better!</p>
-			<p>Open the KoalaTest indexStyle.scss and you will see the file below:</p>
-<pre>
-
-</pre>
-			<p>All variables should be declared before using them otherwise errors will show up. However, you are not stuck with a final variable value as SASS allows several methods and calculations to be applied like below:</p>
-<pre>
-
-</pre>
-			<p>These examples are just the beginning of how powerful variables are!</p>
-			<p>However, having only one CSS sheet with all of your declarations and varibles is not a good idea, especially for larger projects. With that, we will follow conventions and setup the test website in the proper way:</p>
+			<p>One of the best things offered by SASS is variables, and coupled with imports things get even better! Possibilities includes, but not limited to:</p>
 			<ol>
-				<li>Create a new scss file name application.scss</li>
-				<li>Rename indexStyle.scss to _variables.scss</li>
-				<li>Move the after variable declarations to application.scss so that variables only holds variables.</li>
-				<li>Add <strong>@import "variables";</strong> declaration to the beginning  of application.scss</li>
-				<li>Update the index.html css import to application.css</li>
-				<li>Open Koala and either add the KoalaTest project so that the application.scss can be compiled or refresh the project if you have it opened already.</li>
+				<li>Variable with a set value that can be used application wide</li>
+				<li>Perform calculations on those variables</li>
+				<li>Separate chunks of code into files and organize the with @imports</li>
+				<li>Inheritance</li>
 			</ol>
-			<p>Why _variables.scss instead of variables.scss? It is simple, by appending the underscore to a scss file, you are telling the compiler that it is a partial file which means that something else is the master(s) file(s).</p>
-			<p>Is the updated KoalaTest project working? If not, you can grab a updated version available  <a class="button2" target="_blank" href="https://www.dropbox.com/s/u8fc1a9oq1iyo2v/KoalaTestUpdated.zip?dl=0">Dropbox dowload</a></p>
-			<p>This process may not seen important now, but if you look at the source code for this website, you would see how fundamental it becomes...</p>
-			<p>So far there has been some mentions about nesting, but it is now time to really focus on it!</p>
-			{{#link-to 'sassTutorial.nesting' class="button1"}}Nesting{{/link-to}}	
+			<p>This is how one would use some of those functionalities:</p>
+<pre>
+//application.scss
+
+// Import everything from shared.
+@import "shared/**/*";
+
+// Import something specific
+@import "variables";
+</pre>
+<pre>
+//_variables.scss
+
+/* Google Fonts sample @import
+I advised to not import more than three fonts on your entire application for the sake of performance.
+Usage: url?family=FONT1:OPTION|FONT2:OPTION
+*/
+@import url(http://fonts.googleapis.com/css?family=Poiret+One|Orbitron:500);
+
+// Font Variables
+/*
+when declaring font variables, always have a backup font like sans-serif.
+*/
+$poiret-one: 'Poiret One', cursive; 
+$orbitron: 'Orbitron', sans-serif;
+
+// Colors
+$base-body-color: #FCEDFA;
+$color1: hsla(192, 100%, 31%, 1);
+</pre>
+<pre>
+//shared/_header.scss
+
+h1:nth-of-type(1) {
+	font-family: $orbitron;
+	text-align: center;
+	color: $color1;
+	text-shadow: 2px 2px  hsla(189, 93%, 84%, 0.6);
+	text-shadow: 5px 5px  hsla(189, 93%, 5%, 0.7);
+	background: hsla(189, 100%, 0%, 0.6);
+	text-transform: uppercase;
+}
+</pre>
+			<p>Did you notice the order of <strong>@imports</strong>? There is actually an error there. When importing, the compiler goes through top to bottom, so anything that is referenced on another file must either be imported on the file itself or be one of the first things to be imported. </p>
+			<p>You may also have seen the underscore on files like _variables.scss and _header.scss, but they are not there just because. A SASS file that contains an underscore as a prefix tells the compiler that it is a partial file, and so the compiler does not bother trying to compile the file on its own.</p>
+			
+			<p>Another example can be found on this <a class="button2" target="_blank" href="https://www.dropbox.com/s/u8fc1a9oq1iyo2v/KoalaTestUpdated.zip?dl=0">Dropbox download</a>. It does not contain any errors, but it is not following one of the designs patterns previously discussed. Can you identify it?</p>
+			<p>If you guessed the lack of partial import on the variables, then congratulations! Chances are that you are wondering about why this is important since one scss page for those examples is not bad. Well, take a look at the style source code for this website and you will see how fundamental it becomes...</p>
+			<p>At any rate, feeling good with variables and imports? If so, then let's tackle {{#link-to 'sassTutorial.nesting' class="button2"}}nesting{{/link-to}}</p>
 			</article>
 		</section>
 	</div>

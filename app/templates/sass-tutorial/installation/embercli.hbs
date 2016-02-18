@@ -6,9 +6,32 @@ ember install ember-cli-bootstrap-sassy
 </pre>
 <p>After installing the libraries, please follow the instructions available on the <a href="https://github.com/lifegadget/ember-cli-bootstrap-sassy"> ember-cli-bootstrap-sassy Github Repo.</a></p>
 <p>PLease note that whenever you update Ember Cli, you also need to update those libraries as well including any other that you may have used as sometimes things can desync along the way, especially when deploying to Heroku. // TODO LINK for cache purging</p>
-<p>Now onwards to testing the installation! Add the following code to see if H1 on your project will be changed:</p>
+<p>Now onwards to testing the installation! Go to your styles folder and create the following files:</p>
 <pre>
-// TODO
+//app.scss
+
+@import "shared/**/*";
 </pre>
-{{#link-to 'sassTutorial.importsAndVariables' class="button1"}}Imports and Variables!{{/link-to}}
+<pre>
+//shared/_header.scss
+
+// Google Fonts
+@import url(http://fonts.googleapis.com/css?family=Poiret+One|Orbitron:500);
+
+// Font Variables
+$poiret-one: 'Poiret One', cursive; 
+$orbitron: 'Orbitron', sans-serif;
+
+h1:nth-of-type(1) {
+	font-family: $orbitron;
+	text-align: center;
+	color: hsla(192, 100%, 31%, 1);
+	text-shadow: 2px 2px  hsla(189, 93%, 84%, 0.6);
+	text-shadow: 5px 5px  hsla(189, 93%, 5%, 0.7);
+	background: hsla(189, 100%, 0%, 0.6);
+	text-transform: uppercase;
+}
+
+</pre>
+<p> If your first instance of a H1 header changed, then you are all set to learn about {{#link-to 'sassTutorial.importsAndVariables' class="button2"}}Imports and Variables!{{/link-to}}</p>
 </article>

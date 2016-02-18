@@ -1,17 +1,57 @@
-<div id="STS_BG_index" class="STS_BG">
+<div class="STS_BG">
 	<div id="STS_header">
 		<h1>SASS Nesting</h1>
 	</div>
 	<div id="STS_main">
 		<section>
 			<article>
-			<p>Since I started to deal with CSS, I always hated how it handles nesting since HTML does such an awesome job in dealing with it... Now SASS allows you to have this option so that you can have nested and non-nested attributes implemented in a straight forward manner like how you see below:</p>
+			<p>Since I started to deal with CSS, I always hated how it handles nesting since HTML does such an awesome job in dealing with it... Now SASS allows you to have this option so that you can have nested and non-nested attributes implemented in a straight forward manner like below:</p>
 <pre>
-// TODO
+footer {
+	border-color: $default-border-color;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background-color: hsla(186, 100%, 50%, 0.31);
+	padding: 0.2em 0;
+	font-family: 'Questrial', sans-serif;
+	nav {
+		float: left;
+	}
+	ul {
+		display: block;
+		list-style-type: none;
+		padding: 0;
+	}
+	li {
+	display: inline-block;
+		a {
+			color: $footer-font-color;
+			display: inline-block;
+			font-size: 14px;
+			letter-spacing: 1px;
+			padding: 10px;
+			text-decoration: none;
+			&:hover {
+				color: #888;
+			}
+		}
+	}
+	label {
+		color: $footer-font-color;
+		display: inline-block;
+		font-size: 14px;
+		letter-spacing: 1px;
+		padding: 10px;
+		text-decoration: none;
+		float: right;
+	}
+}
+
 </pre>
-			<p>Nesting could be very useful in a wide range of cases including less classes and ids declarations like applying styles to the elements of a <b>nav</b> tag. An example is the .main class and the #ids used by each page.</p>
-			<p>However, there is another SASS feature that is pretty handy: Inheritance!</p>
-			{{#link-to 'sassTutorial.inheritance' class="button1"}}About{{/link-to}}
+			<p>Nesting could be very useful in a wide range of cases including less classes and ids declarations. Another handy use is to setup a global HTML styling structure with only element selectors while making use of classes and ids to customize the global styling along the way.</p>
+			<p>All the features mentioned so far already make SASS awesome! However, we still need to talk about {{#link-to 'sassTutorial.inheritance' class="button2"}}Inheritance!{{/link-to}}</p>
 			</article>
 		</section>
 	</div>
