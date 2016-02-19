@@ -14,9 +14,12 @@
 // Other Global Variables and setup.
 @import "globals";
 
+// Import all shared SCSS Tutorial codes
+@import "sts_shared/imports";
+
 // Project Variables and setup.
 @import "dpw"; // Deo's Personal Website
+@import "sts"; // SASS Tutorial Styles
 @import "dsp"; // Deo's Space Program
 @import "ect"; // Ember CLI Tutorial
-@import "sts"; // SASS Tutorial Styles
 @import "das"; // Deo's Archives Styles

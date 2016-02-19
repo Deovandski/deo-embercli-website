@@ -1,11 +1,40 @@
 <div id="ECT_BG_index" class="ECT_BG">
 	<div id="ECT_header">
 		<h1>Ember Cli Tutorial - Installation</h1>
+		<section>
+		<p>This part of the tutorial will be rather long, but at the end of the installation you will have a live website!</p>
+		<p>For the sake of keeping track how far you are through this section of the guide, I made available a progress bar:</p>
+		<section id="progressBarBase">
+			<div id={{progressBarValue}}>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</section>
+		<nav>
+			<ul>
+				<li>
+					{{#link-to 'emberTutorial.installation.ubuntuVirtualBox'}}Ubuntu on Virtual Box{{/link-to}}
+				</li>
+				<li>
+					{{#link-to 'emberTutorial.installation.github'}}Git & Github{{/link-to}}
+				</li>
+				<li>
+					{{#link-to 'emberTutorial.installation.testing'}}Travis CI & CodeClimate{{/link-to}}
+				</li>
+				<li>
+					{{#link-to 'emberTutorial.installation.heroku'}}Heroku{{/link-to}}
+				</li>
+			</ul>
+		</nav>
+		</section>
 	</div>
 	<div id="ECT_main">
+			Emberize Everything:
+{{input type="checkbox" checked=checkValue_1}}
 		<section>
-			<article>
-			</article>
+			{{outlet}}
 		</section>
 	</div>
 </div>

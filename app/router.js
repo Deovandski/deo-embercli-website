@@ -14,7 +14,12 @@ Router.map(function() {
 	// Projects
 	this.route('emberTutorial', function() {
 		this.route('index', { path: '/' });
-		this.route('installation');
+		this.route('installation', function() {
+			this.route('ubuntuVirtualBox');
+			this.route('github');
+			this.route('testing');
+			this.route('heroku');
+		});
 	});
 
 	this.route('sassTutorial', function() {

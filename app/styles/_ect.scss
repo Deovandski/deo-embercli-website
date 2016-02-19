@@ -1,5 +1,9 @@
 // Main Style file for Ember CLI Tutorial
 
+//ECT Variables
+
+$ect-header-color: hsla(31, 100%, 62%, 1);
+
 /*
 	Structure: 
 
@@ -23,6 +27,36 @@
 		text-shadow: 2px 2px  hsla(189, 40%, 50%, 1);
 		background: hsla(189, 100%, 0%, 0.6);
 		letter-spacing: 1px;
+	}
+	nav {
+		text-align: center;
+		ul {
+			margin: 0;
+			padding: 0;
+			li {
+				line-height: 50px;
+				text-align: center;
+				display: inline-block;
+				margin-left: 6px;
+				margin-right: 6px;
+				a, label {
+					padding: 5px;
+					width:100%;
+					line-height: 50px;
+					text-align: center;
+					border: 2px solid darken($ect-header-color, 35%);
+					color: darken($ect-header-color, 75%);
+					letter-spacing: 1px;
+					text-decoration: none;
+					text-transform: uppercase;
+					margin: 5px;
+					&:hover {
+						border: 2px solid darken($ect-header-color, 100%);
+						color: darken($ect-header-color, 25%);
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -67,12 +101,51 @@
 	margin: 0px;
 }
 
-#ECT_BG_index {
-	// No Background Image
+// progressBar Definitions
+
+#progressBarBase {
+	width: 100%;
+	height: 20px;
+	.EmberCliProgressBar{
+		border: 2px solid darken($ect-header-color, 75%);
+		height: 20px;
+		margin: 2px auto 2px auto;
+		width: 200px;
+		display: flex;
+		div:nth-of-type(-n+4) {
+			flex-grow: 1;
+			margin: 0px;
+			padding: 0px;
+			height: 100%;
+			flex-direction: column;
+			flex-wrap: wrap;
+		}
+	}
+	#progress_0 {
+		@extend .EmberCliProgressBar;
+	}
+	#progress_1 {
+		@extend .EmberCliProgressBar;
+		div:nth-of-type(-n+1) {
+			background: darken($ect-header-color, 25%);
+		}
+	}
+	#progress_2 {
+		@extend .EmberCliProgressBar;
+		div:nth-of-type(-n+2) {
+			background: darken($ect-header-color, 25%);
+		}
+	}
+	#progress_3 {
+		@extend .EmberCliProgressBar;
+		div:nth-of-type(-n+3) {
+			background: darken($ect-header-color, 25%);
+		}
+	}
+	#progress_4 {
+		@extend .EmberCliProgressBar;
+		div:nth-of-type(-n+4) {
+			background: darken($ect-header-color, 25%);
+		}
+	}
 }
-
-
-
-
-// Specific Page Definitons
-
