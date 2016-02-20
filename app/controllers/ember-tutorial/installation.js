@@ -9,19 +9,37 @@ export default Ember.Controller.extend({
 	
 	//
 	progressBarValueMaker: Ember.computed('progressBarValueNumber', function() {
-		if(this.get('progressBarValueNumber') <= 0) {
-			this.incrementProperty('progressBarValueNumber');
-			this.incrementProperty('progressBarValueNumber'); //Compensate for initial false values...
+		if(this.get('progressBarValueNumber') < 0) {
+			this.set('progressBarValueNumber', 3); //Compensate for initial false values...
 		}
-		if(this.get('progressBarValueNumber') === 0) {
+		else if(this.get('progressBarValueNumber') === 0) {
 			this.set('progressBarValue','progress_0');
+		}
+		else if(this.get('progressBarValueNumber') === 3) { //Compensate for sub_route changes...
+			this.set('progressBarValue','progress_5');
+			this.set('progressBarValueNumber', 5);
+		}
+		else if(this.get('progressBarValueNumber') === 7) { //Compensate for sub_route changes...
+			this.set('progressBarValue','progress_8');
+			this.set('progressBarValueNumber', 8);
+		}
+		else if(this.get('progressBarValueNumber') === 10) { //Go to 12 because why not?
+			this.set('progressBarValue','progress_12');
+			this.set('progressBarValueNumber', 11);
+		}
+		else if(this.get('progressBarValueNumber') === 11) { 
+			this.set('progressBarValue','progress_12');
+			this.set('progressBarValueNumber', 11);
 		}
 		else if(this.get('progressBarValueNumber') === 12) {
 			this.set('progressBarValue','progress_12');
 		}
+		else if(this.get('progressBarValueNumber') > 12) {
+			this.set('progressBarValue','progress_12');
+			this.set('progressBarValueNumber', 12);
+		}
 		else {
 			this.set('progressBarValue','progress_' + this.get('progressBarValueNumber'));
-			console.log(this.get('progressBarValueNumber'));
 		}
 	}),
 
