@@ -6,10 +6,11 @@
 		<p>For the sake of keeping track how far you are through this section of the guide, I made available a progress bar:</p>
 		<section id="progressBarBase">
 			<div id={{progressBarValue}}>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
+				<div></div><div></div> <div></div><div></div>
+				<div></div><div></div> <div></div><div></div>
+				<div></div><div></div> <div></div><div></div>
+				{{progressBarController_main_1}}
+				{{progressBarValueMaker}}
 			</div>
 		</section>
 		<nav>
@@ -31,8 +32,7 @@
 		</section>
 	</div>
 	<div id="ECT_main">
-			Checkbox 2:
-				{{input type="checkbox" checked=checkValue_main_1}}{{progressBarController_main_1}}
+		{{!input type="checkbox" checked=checkValue_main_1}}
 		<section>
 			{{outlet}}
 		</section>

@@ -112,7 +112,7 @@ $ect-header-color: hsla(31, 100%, 62%, 1);
 		margin: 2px auto 2px auto;
 		width: 200px;
 		display: flex;
-		div:nth-of-type(-n+4) {
+		div:nth-of-type(-n+12) {
 			flex-grow: 1;
 			margin: 0px;
 			padding: 0px;
@@ -145,6 +145,54 @@ $ect-header-color: hsla(31, 100%, 62%, 1);
 	#progress_4 {
 		@extend .EmberCliProgressBar;
 		div:nth-of-type(-n+4) {
+			background: darken($ect-header-color, 25%);
+		}
+	}
+	#progress_5 {
+		@extend .EmberCliProgressBar;
+		div:nth-of-type(-n+5) {
+			background: darken($ect-header-color, 25%);
+		}
+	}
+	#progress_6 {
+		@extend .EmberCliProgressBar;
+		div:nth-of-type(-n+6) {
+			background: darken($ect-header-color, 25%);
+		}
+	}
+	#progress_7 {
+		@extend .EmberCliProgressBar;
+		div:nth-of-type(-n+7) {
+			background: darken($ect-header-color, 25%);
+		}
+	}
+	#progress_8 {
+		@extend .EmberCliProgressBar;
+		div:nth-of-type(-n+8) {
+			background: darken($ect-header-color, 25%);
+		}
+	}
+	#progress_9 {
+		@extend .EmberCliProgressBar;
+		div:nth-of-type(-n+9) {
+			background: darken($ect-header-color, 25%);
+		}
+	}
+	#progress_10 {
+		@extend .EmberCliProgressBar;
+		div:nth-of-type(-n+10) {
+			background: darken($ect-header-color, 25%);
+		}
+	}
+	#progress_11 {
+		@extend .EmberCliProgressBar;
+		div:nth-of-type(-n+11) {
+			background: darken($ect-header-color, 25%);
+		}
+	}
+	#progress_12 {
+		@extend .EmberCliProgressBar;
+		div:nth-of-type(-n+12) {
 			background: darken($ect-header-color, 25%);
 		}
 	}

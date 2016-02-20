@@ -2,38 +2,36 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	
-	// Progress Bar Value
+	// Progress Bar Values
 	progressBarValue: "progress_0",
+	progressBarValueNumber: 0,
 	checkValue_main_1: false,
-	// ProgressBar Controller #1
-	progressBarController_main_1: Ember.computed('checkValue_main_1', function() {
-		if(this.get('checkValue_main_1') === true) {
-			if(this.get('progressBarValue') === "progress_0") {
-				this.set('progressBarValue','progress_1');
-			}
-			else if(this.get('progressBarValue') === "progress_1") {
-				this.set('progressBarValue','progress_2');
-			}
-			else if(this.get('progressBarValue') === "progress_2") {
-				this.set('progressBarValue','progress_3');
-			}
-			else {
-				this.set('progressBarValue','progress_4');
-			}
+	
+	//
+	progressBarValueMaker: Ember.computed('progressBarValueNumber', function() {
+		if(this.get('progressBarValueNumber') <= 0) {
+			this.incrementProperty('progressBarValueNumber');
+			this.incrementProperty('progressBarValueNumber'); //Compensate for initial false values...
+		}
+		if(this.get('progressBarValueNumber') === 0) {
+			this.set('progressBarValue','progress_0');
+		}
+		else if(this.get('progressBarValueNumber') === 12) {
+			this.set('progressBarValue','progress_12');
 		}
 		else {
-			if(this.get('progressBarValue') === "progress_4") {
-				this.set('progressBarValue','progress_3');
-			}
-			else if(this.get('progressBarValue') === "progress_3") {
-				this.set('progressBarValue','progress_2');
-			}
-			else if(this.get('progressBarValue') === "progress_2") {
-				this.set('progressBarValue','progress_1');
-			}
-			else {
-				this.set('progressBarValue','progress_0');
-			}
-		} 
+			this.set('progressBarValue','progress_' + this.get('progressBarValueNumber'));
+			console.log(this.get('progressBarValueNumber'));
+		}
+	}),
+
+	// ProgressBar Checker #1
+	progressBarController_main_1: Ember.computed('checkValue_main_1', function() {
+		if(this.get('checkValue_main_1') === true) {
+			this.incrementProperty('progressBarValueNumber');
+		}
+		else {
+			this.decrementProperty('progressBarValueNumber');
+		}
 	})
 });
