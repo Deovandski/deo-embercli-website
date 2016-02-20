@@ -31,6 +31,13 @@
 			margin: 5px;
 			padding: 4px;
 			a {
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				-ms-box-sizing: border-box;
+				box-sizing: border-box;
+				-webkit-transition: all 0.3s;
+				-moz-transition: all 0.3s;
+				transition: all 0.3s;
 				background-color: hsla(189, 27%, 0%, 1);
 				font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 				text-align: center;
@@ -48,6 +55,10 @@
 			a:hover {
 				border: 4px solid hsla(109, 44%, 73%, 0.95);
 				text-decoration: none;
+				cursor: pointer;
+				-ms-transform: rotatex(360deg);
+				-webkit-transform: rotatex(360deg);
+				transform: rotatex(360deg);
 			}
 			a:visited {
 				color: hsla(109, 44%, 73%, 0.95);

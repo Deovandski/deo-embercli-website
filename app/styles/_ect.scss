@@ -39,7 +39,14 @@ $ect-header-color: hsla(31, 100%, 62%, 1);
 				display: inline-block;
 				margin-left: 6px;
 				margin-right: 6px;
-				a, label {
+					-webkit-box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					-ms-box-sizing: border-box;
+					box-sizing: border-box;
+					-webkit-transition: all 0.1s;
+					-moz-transition: all 0.1s;
+					transition: all 0.1s;
+				a {
 					padding: 5px;
 					width:100%;
 					line-height: 50px;
@@ -54,6 +61,11 @@ $ect-header-color: hsla(31, 100%, 62%, 1);
 						border: 2px solid darken($ect-header-color, 100%);
 						color: darken($ect-header-color, 25%);
 					}
+				}
+			&:hover {
+						-ms-transform: rotatex(360deg);
+						-webkit-transform: rotatex(360deg);
+						transform: rotatex(360deg);			
 				}
 			}
 		}
