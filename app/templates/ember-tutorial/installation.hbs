@@ -9,8 +9,10 @@
 				<div></div><div></div> <div></div><div></div>
 				<div></div><div></div> <div></div><div></div>
 				<div></div><div></div> <div></div><div></div>
-				{{progressBarController_main_1}}
-				{{progressBarValueMaker}}
+				{{! Watchers Hookup | Main controller}}{{progressBarValueMaker}}
+				{{checkValue_1_watcher}}{{checkValue_2_watcher}}{{checkValue_3_watcher}}{{checkValue_4_watcher}}{{checkValue_5_watcher}}
+				{{checkValue_6_watcher}}{{checkValue_7_watcher}}{{checkValue_8_watcher}}{{checkValue_9_watcher}}{{checkValue_10_watcher}}
+				{{checkValue_11_watcher}}{{checkValue_12_watcher}}
 			</div>
 		</section>
 		<nav>
@@ -32,9 +34,15 @@
 		</section>
 	</div>
 	<div id="ECT_main">
-		{{!input type="checkbox" checked=checkValue_main_1}}
 		<section>
 			{{outlet}}
+		</section>
+		<section>
+			{{#if setup_complete}}
+			<p>//TODO MOVE ON TO NEXT PAGE</p>
+			{{else}}
+			<p>Please check all sections as complete before continuing...</p>
+			{{/if}}
 		</section>
 	</div>
 </div>
