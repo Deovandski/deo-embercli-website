@@ -20,6 +20,7 @@ Router.map(function() {
 			this.route('testing');
 			this.route('heroku');
 		});
+		this.route('more');
 	});
 
 	this.route('sassTutorial', function() {
