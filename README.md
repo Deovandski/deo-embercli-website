@@ -1,6 +1,6 @@
 ## Deo's Personal Website
 
-[![Build Status][travis-badge]][travis] [![Test Coverage][testCoverage-badge]][testCoverage] [![Code Climate][codeClimate-badge]][codeClimate] [![Dependency Status][dependency-badge]][dependency] [![Security][security-badge]][security]
+[![Build Status][travis-badge]][travis] [![Test Coverage][testCoverage-badge]][testCoverage] [![Code Climate][codeClimate-badge]][codeClimate] [![Dependency Status][dependency-badge]][dependency] [![Security][security-badge]][security] [![Issue Count](issues-badge)](issues)
 
 [Live Website](https://deovandski.herokuapp.com/) (Initial load may be slow due to Dyno sleep mode implemented by [Heroku](https://www.heroku.com/pricing).)
 
@@ -56,3 +56,6 @@ Copyright (c) 2016, Deovandski Skibinski Junior. All rights reserved to the code
 [security-badge]: https://hakiri.io/github/Deovandski/DeoPersonalWebsite/master.svg
 [dependency]: https://gemnasium.com/Deovandski/DeoPersonalWebsite
 [dependency-badge]: https://gemnasium.com/Deovandski/DeoPersonalWebsite.svg
+[issues]: https://codeclimate.com/github/Deovandski/DeoPersonalWebsite
+[issues-badge]: https://codeclimate.com/github/Deovandski/DeoPersonalWebsite/badges/issue_count.svg
+
