@@ -1,18 +1,19 @@
 ---
 language: node_js
 node_js:
-  - "0.12"
+  - "5.1"
 
 sudo: false
 
 cache:
   directories:
     - node_modules
+    - bower_components
 
 before_install:
   - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
   - "npm config set spin false"
-  - "npm install -g npm@^2"
+  - "npm install -g npm@^3.6"
 
 install:
   - npm install -g bower
@@ -20,6 +21,6 @@ install:
   - bower install
 
 script:
-  - npm test
+  - ember test
 after_script:
   - CODECLIMATE_REPO_TOKEN=5d52a9f74dc6c00b8b310bd793c41479d4cbab3750ef73f6ef3556f68853256d codeclimate-test-reporter < lcov.dat
