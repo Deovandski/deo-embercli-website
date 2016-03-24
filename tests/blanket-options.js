@@ -3,7 +3,6 @@
 var options = {
   modulePrefix: 'deo-personal-website',
   filter: '//.*deo-personal-website/.*/',
-  antifilter: '//.*(tests|template).*/',
   loaderExclusions: [],
   enableCoverage: true,
   cliOptions: {
