@@ -3,7 +3,15 @@
 //ECT Variables
 
 $ect-header-color: hsla(31, 100%, 62%, 1);
+$progress-bar-bg-color-one: hsla(74, 100%, 50%, 1);
+$progress-bar-bg-color-two: hsla(142, 100%, 50%, 1);
+$progress-bar-bg-color-three: hsla(201, 100%, 50%, 1);
+$progress-bar-bg-color-four: hsla(287, 100%, 50%, 1);
 
+$ul-li-bg-color-one: hsla(74, 100%, 50%, 0.3);
+$ul-li-bg-color-two: hsla(142, 100%, 50%, 0.3);
+$ul-li-bg-color-three: hsla(201, 100%, 50%, 0.3);
+$ul-li-bg-color-four: hsla(287, 100%, 50%, 0.3);
 /*
 	Structure: 
 
@@ -118,7 +126,7 @@ $ect-header-color: hsla(31, 100%, 62%, 1);
 #progressBarBase {
 	width: 100%;
 	height: 20px;
-	.EmberCliProgressBar{
+	#progressBar{
 		border: 2px solid darken($ect-header-color, 75%);
 		height: 20px;
 		margin: 2px auto 2px auto;
@@ -132,80 +140,36 @@ $ect-header-color: hsla(31, 100%, 62%, 1);
 			flex-direction: column;
 			flex-wrap: wrap;
 		}
-	}
-	#progress_0 {
-		@extend .EmberCliProgressBar;
-	}
-	#progress_1 {
-		@extend .EmberCliProgressBar;
-		div:nth-of-type(-n+1) {
-			background: darken($ect-header-color, 25%);
+		div.colored_1 {
+			background: $progress-bar-bg-color-one;
+		}
+		div.colored_2 {
+			background: $progress-bar-bg-color-two;
+		}
+		div.colored_3 {
+			background: $progress-bar-bg-color-three;
+		}
+		div.colored_4 {
+			background: $progress-bar-bg-color-four;
+		}
+		div.colored_section_end {
+			border-right: 2px solid darken($ect-header-color, 75%);
 		}
 	}
-	#progress_2 {
-		@extend .EmberCliProgressBar;
-		div:nth-of-type(-n+2) {
-			background: darken($ect-header-color, 25%);
-		}
-	}
-	#progress_3 {
-		@extend .EmberCliProgressBar;
-		div:nth-of-type(-n+3) {
-			background: darken($ect-header-color, 25%);
-		}
-	}
-	#progress_4 {
-		@extend .EmberCliProgressBar;
-		div:nth-of-type(-n+4) {
-			background: darken($ect-header-color, 25%);
-		}
-	}
-	#progress_5 {
-		@extend .EmberCliProgressBar;
-		div:nth-of-type(-n+5) {
-			background: darken($ect-header-color, 25%);
-		}
-	}
-	#progress_6 {
-		@extend .EmberCliProgressBar;
-		div:nth-of-type(-n+6) {
-			background: darken($ect-header-color, 25%);
-		}
-	}
-	#progress_7 {
-		@extend .EmberCliProgressBar;
-		div:nth-of-type(-n+7) {
-			background: darken($ect-header-color, 25%);
-		}
-	}
-	#progress_8 {
-		@extend .EmberCliProgressBar;
-		div:nth-of-type(-n+8) {
-			background: darken($ect-header-color, 25%);
-		}
-	}
-	#progress_9 {
-		@extend .EmberCliProgressBar;
-		div:nth-of-type(-n+9) {
-			background: darken($ect-header-color, 25%);
-		}
-	}
-	#progress_10 {
-		@extend .EmberCliProgressBar;
-		div:nth-of-type(-n+10) {
-			background: darken($ect-header-color, 25%);
-		}
-	}
-	#progress_11 {
-		@extend .EmberCliProgressBar;
-		div:nth-of-type(-n+11) {
-			background: darken($ect-header-color, 25%);
-		}
-	}
-	#progress_12 {
-		@extend .EmberCliProgressBar;
-		div:nth-of-type(-n+12) {
-			background: darken($ect-header-color, 25%);
-		}
-	}
+}
+.ul_li_colored_1 {
+	background: $ul-li-bg-color-one;
+}
+.ul_li_colored_2 {
+	background: $ul-li-bg-color-two;
+}
+.ul_li_colored_3 {
+	background: $ul-li-bg-color-three;
+}
+.ul_li_colored_4 {
+	background: $ul-li-bg-color-four;
+}
+.ember_confirmation {
+	width: 185px;
+	border: 2px solid darken($ect-header-color, 75%);
 }

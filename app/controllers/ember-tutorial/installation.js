@@ -18,16 +18,14 @@ export default Ember.Controller.extend({
 	checkValue_11: false,
 	checkValue_12: false,
 	setup_complete: false,
-	
 	// Append progressBarValueNumber into the #id for progress_X
-	progressBarValueMaker: Ember.computed('progressBarValueNumber', function() {
-		console.log(this.get('progressBarValueNumber'));
+	progressBarValueMaker: function() {
 		// DirtyFix for onLoad() to reset value to 0 in order for ProgressBar to value.
-		// To prevent CPU spike, value is only set on -12
+		// To prevent uneccessary changes, only when the value reaches the lowest value of -12
+		// the value gets to be changed.
 		if (this.get('progressBarValueNumber') < 0) {
 			if (this.get('progressBarValueNumber') === -12) {
 				this.set('progressBarValueNumber','0');
-				this.set('progressBarValue','progress_' + this.get('progressBarValueNumber'));
 			}
 		}
 		else{
@@ -38,9 +36,8 @@ export default Ember.Controller.extend({
 			else {
 				this.set('setup_complete',false);
 			}
-			this.set('progressBarValue','progress_' + this.get('progressBarValueNumber'));
 		}
-	}),
+	},
 
 	/*	ProgressBar Boolean Watchers
 		Must be separated into individual computed property otherwise a
@@ -70,6 +67,7 @@ export default Ember.Controller.extend({
 		else {
 			this.decrementProperty('progressBarValueNumber');
 		}
+		this.progressBarValueMaker();
 	}),
 	// ProgressBar Boolean Watcher #2
 	checkValue_2_watcher: Ember.computed('checkValue_2', function() {
@@ -79,6 +77,7 @@ export default Ember.Controller.extend({
 		else {
 			this.decrementProperty('progressBarValueNumber');
 		}
+		this.progressBarValueMaker();
 	}),
 	// ProgressBar Boolean Watcher #3
 	checkValue_3_watcher: Ember.computed('checkValue_3', function() {
@@ -88,6 +87,7 @@ export default Ember.Controller.extend({
 		else {
 			this.decrementProperty('progressBarValueNumber');
 		}
+		this.progressBarValueMaker();
 	}),
 	// ProgressBar Boolean Watcher #4
 	checkValue_4_watcher: Ember.computed('checkValue_4', function() {
@@ -97,6 +97,7 @@ export default Ember.Controller.extend({
 		else {
 			this.decrementProperty('progressBarValueNumber');
 		}
+		this.progressBarValueMaker();
 	}),
 	// ProgressBar Boolean Watcher #5
 	checkValue_5_watcher: Ember.computed('checkValue_5', function() {
@@ -106,6 +107,7 @@ export default Ember.Controller.extend({
 		else {
 			this.decrementProperty('progressBarValueNumber');
 		}
+		this.progressBarValueMaker();
 	}),
 	// ProgressBar Boolean Watcher #6
 	checkValue_6_watcher: Ember.computed('checkValue_6', function() {
@@ -115,6 +117,7 @@ export default Ember.Controller.extend({
 		else {
 			this.decrementProperty('progressBarValueNumber');
 		}
+		this.progressBarValueMaker();
 	}),
 	// ProgressBar Boolean Watcher #7
 	checkValue_7_watcher: Ember.computed('checkValue_7', function() {
@@ -124,6 +127,7 @@ export default Ember.Controller.extend({
 		else {
 			this.decrementProperty('progressBarValueNumber');
 		}
+		this.progressBarValueMaker();
 	}),
 	// ProgressBar Boolean Watcher #8
 	checkValue_8_watcher: Ember.computed('checkValue_8', function() {
@@ -133,6 +137,7 @@ export default Ember.Controller.extend({
 		else {
 			this.decrementProperty('progressBarValueNumber');
 		}
+		this.progressBarValueMaker();
 	}),
 	// ProgressBar Boolean Watcher #9
 	checkValue_9_watcher: Ember.computed('checkValue_9', function() {
@@ -142,6 +147,7 @@ export default Ember.Controller.extend({
 		else {
 			this.decrementProperty('progressBarValueNumber');
 		}
+		this.progressBarValueMaker();
 	}),
 	// ProgressBar Boolean Watcher #10
 	checkValue_10_watcher: Ember.computed('checkValue_10', function() {
@@ -151,6 +157,7 @@ export default Ember.Controller.extend({
 		else {
 			this.decrementProperty('progressBarValueNumber');
 		}
+		this.progressBarValueMaker();
 	}),
 	// ProgressBar Boolean Watcher #11
 	checkValue_11_watcher: Ember.computed('checkValue_11', function() {
@@ -160,6 +167,7 @@ export default Ember.Controller.extend({
 		else {
 			this.decrementProperty('progressBarValueNumber');
 		}
+		this.progressBarValueMaker();
 	}),
 	// ProgressBar Boolean Watcher #12
 	checkValue_12_watcher: Ember.computed('checkValue_12', function() {
@@ -169,5 +177,6 @@ export default Ember.Controller.extend({
 		else {
 			this.decrementProperty('progressBarValueNumber');
 		}
+		this.progressBarValueMaker();
 	}),
 });

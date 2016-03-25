@@ -5,11 +5,25 @@
 		<p>This part of the tutorial will be rather long, but at the end of the installation you will have a live website!</p>
 		<p>For the sake of keeping track how far you are through this section of the guide, I made available a progress bar:</p>
 		<section id="progressBarBase">
-			<div id={{progressBarValue}}>
-				<div></div><div></div> <div></div><div></div>
-				<div></div><div></div> <div></div><div></div>
-				<div></div><div></div> <div></div><div></div>
-				{{! Watchers Hookup | Main controller}}{{progressBarValueMaker}}
+			<div id="progressBar">
+				
+				{{! checkValues}}
+				
+				{{#if checkValue_1}}<div class="colored_1"></div>{{else}}<div></div>{{/if}}
+				{{#if checkValue_2}}<div class="colored_1"></div>{{else}}<div></div>{{/if}}
+				{{#if checkValue_3}}<div class="colored_1 colored_section_end"></div>{{else}}<div class="colored_section_end"></div>{{/if}}
+				{{#if checkValue_4}}<div class="colored_2"></div>{{else}}<div></div>{{/if}}
+				{{#if checkValue_5}}<div class="colored_2"></div>{{else}}<div></div>{{/if}}
+				{{#if checkValue_6}}<div class="colored_2 colored_section_end"></div>{{else}}<div class="colored_section_end"></div>{{/if}}
+				{{#if checkValue_7}}<div class="colored_3"></div>{{else}}<div></div>{{/if}}
+				{{#if checkValue_8}}<div class="colored_3"></div>{{else}}<div></div>{{/if}}
+				{{#if checkValue_9}}<div class="colored_3 colored_section_end"></div>{{else}}<div class="colored_section_end"></div>{{/if}}
+				{{#if checkValue_10}}<div class="colored_4"></div>{{else}}<div></div>{{/if}}
+				{{#if checkValue_11}}<div class="colored_4"></div>{{else}}<div></div>{{/if}}
+				{{#if checkValue_12}}<div class="colored_4"></div>{{else}}<div></div>{{/if}}
+				
+				{{! Watchers Hookup}}
+				
 				{{checkValue_1_watcher}}{{checkValue_2_watcher}}{{checkValue_3_watcher}}{{checkValue_4_watcher}}{{checkValue_5_watcher}}
 				{{checkValue_6_watcher}}{{checkValue_7_watcher}}{{checkValue_8_watcher}}{{checkValue_9_watcher}}{{checkValue_10_watcher}}
 				{{checkValue_11_watcher}}{{checkValue_12_watcher}}
@@ -18,16 +32,16 @@
 		<nav>
 			<ul>
 				<li>
-					{{#link-to 'emberTutorial.installation.ubuntuVirtualBox'}}Ubuntu on Virtual Box{{/link-to}}
+					{{#link-to 'emberTutorial.installation.ubuntuVirtualBox' class="ul_li_colored_1"}}Ubuntu on Virtual Box{{/link-to}}
 				</li>
 				<li>
-					{{#link-to 'emberTutorial.installation.github'}}Git & Github{{/link-to}}
+					{{#link-to 'emberTutorial.installation.github' class="ul_li_colored_2"}}Git & Github{{/link-to}}
 				</li>
 				<li>
-					{{#link-to 'emberTutorial.installation.testing'}}Travis CI & CodeClimate{{/link-to}}
+					{{#link-to 'emberTutorial.installation.testing' class="ul_li_colored_3"}}Travis CI & CodeClimate{{/link-to}}
 				</li>
 				<li>
-					{{#link-to 'emberTutorial.installation.heroku'}}Heroku{{/link-to}}
+					{{#link-to 'emberTutorial.installation.heroku' class="ul_li_colored_4"}}Heroku{{/link-to}}
 				</li>
 			</ul>
 		</nav>
