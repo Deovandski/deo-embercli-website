@@ -4,7 +4,19 @@
 {{#if emberTutorial.checkValue_4}}
 <p></p>
 {{else}}
-<p>//TODO</p>
+<p>Now that you should have Ubuntu working with this website running,
+ we can focus on more specific parts of this project. Instead of teaching 
+ you the inside out of Git and Github, I will give you quick explanations
+  along the way. First things first, Git is the <a href="https://en.wikipedia.org/wiki/Software_versioning" target="_blank">versioning</a>
+  software where you mainly use it for local versioning control while 
+  Github is the website where you manage the server side of things
+  including issues and third-party tools like TravisCI.</p>
+<p>Go to <a href="https://github.com/" target="_blank">Github</a> and 
+create an account, or login if you have one already. Next, create a new 
+Public repository with the name and description that you want while also 
+initializing the repo with a README, no .gitignore and a license that you want. 
+After you create the repo, you will see a SSH link which you need to save it 
+somewhere as we will soon use it on the next section.</p>
 {{/if}}
 <div class="ul_li_colored_2 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_4}}</div>
 </section>
@@ -13,15 +25,37 @@
 {{#if emberTutorial.checkValue_5}}
 <p></p>
 {{else}}
-<p>// TODO</p>
+<p></p>
+<p>Now head back to your terminal, and make sure that you are back to your 
+home folder by having something like <code>deovandski@deoVirtualBox:~$</code> on it. 
+If necessary, use <code>cd ..</code> to go one folder above. Now we need 
+to setup your Git information to your Github account:</p>
+<ol>
+  <li><code>git config --global user.name "YOUR NAME"</code></li>
+  <li><code>git config --global user.email "YOUR EMAIL ADDRESS"</code></li>
+</ol>
+<p>Now we need to setup your Public key in order for easy deployment to Github:</p>
+<ol>
+  <li>Generate a new key with <code>ssh-keygen</code> and type a easy name like key followed by a good Passphrase (Password.)</li>
+  <li>Now on your HOME folder, open the xxx.pub and you will see a text starting with <code>ssh-rsa XXXXXXX</code>.
+  Copy the entire text, and go to <a href="https://github.com/settings/keys" target="_blank">Github Key Settings</a> 
+  where you will create a new key and dump the content from the .pub file into the Key textbox.</li>
+  <li>Remember the SSH link that you had to save? You will now clone 
+  (create a local copy) the repo by using <code>git clone SSHLINK</code></li>
+</ol>
+<p>You can confirm that your repo has been cloned if you have a folder on your HOME directory with the repo name. 
+If so, use <code>cd NAMEOFREPO</code> and use <code>git status</code>. 
+If your output is like below, then you are ready for the next section:</p>
+<p>INSERT IMAGE</p>
 {{/if}}
 <div class="ul_li_colored_2 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_5}}</div>
 </section>
 <h3>How to use Git & Github</h3>
 <section>
 {{#if emberTutorial.checkValue_6}}
-<p></p>
+<p></p>                              <a href="#" target="_blank"> </a>
 {{else}}
+<p>Now it is time make and save changes on your new repo!</p>
 <p>//TODO</p>
 {{/if}}
 <div class="ul_li_colored_2 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_6}}</div>
