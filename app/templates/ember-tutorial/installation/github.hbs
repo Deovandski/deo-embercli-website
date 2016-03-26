@@ -118,10 +118,11 @@ we should keep it as easy as possible for now.</p>
 <p><a target="_blank" href="http://imgur.com/C7X7j0r"><img height=300 src="http://i.imgur.com/C7X7j0r.png" title="source: imgur.com" /></a></p>
 <p>Issues? If not, then move into the next section, otherwise see if your issue is one of the below:</p>
 <ol>
-  <li><strong>Launcher PhantomJS not found</strong>. To solve it, run <code>npm install -g phantomJS</code></li>
+  <li><strong>Launcher PhantomJS not found</strong>. To solve it, run <code>npm install -g phantomjs</code></li>
   <li><strong>'xxx' is only available on ES6. (use 'esversion: 6')</strong>. To solve it, 
-  restart your virtual machine and run <code>npm install</code> followed by <code>bower install</code> on your new project again.</li>
+  create a new <strong>.jshintrc</strong> file on the root of your project with the same content as <a href="https://github.com/Deovandski/DeoEmberCliGuide/blob/master/.jshintrc" target="_blank">this one</a>.</li>
 </ol>
+<p>If you are still having issues, then check out how your repo should like through this <a href="https://github.com/Deovandski/DeoEmberCliGuide/tree/595de5b62a899f311980a99b4e489392802d34a3" target="_blank">link</a>.</p>
 {{/if}}
 <div class="ul_li_colored_2 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_6}}</div>
 </section>

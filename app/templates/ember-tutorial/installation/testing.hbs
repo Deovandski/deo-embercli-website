@@ -4,7 +4,50 @@
 {{#if emberTutorial.checkValue_7}}
 <p></p>
 {{else}}
-<p>//TODO</p>
+<p>Now it is time to learn a bit about how Ember Cli works. 
+Ember is a very opiniated framework which means that it is quite strict 
+in how developers should tackle it. However, this also allows quicker 
+and neater development.</p>
+<p>Step 7 will guide you to create an index, about and an archive page with two subpages.
+ Before you further progress into Step 7, if you are using gedit as the editor, 
+ then please open the preferences window and deactivate "Create a backup copy of file before saving". 
+ This will stop creating file ending with ~ which becomes a pain as the repo grows.</p>
+<p>Now, close the server and follow these steps to scaffold the initial routes:</p>
+<ol>
+  <li><code>ember g route index</code></li>
+  <li><code>ember g route archives</code></li>
+  <li><code>ember g route archives/pageOne</code></li>
+  <li><code>ember g route archives/pageTwo</code></li>
+  <li>Now go to the App/router.js (which is where all the routes 
+  {think of it as urls} are defined), and change the archives route
+  to the following:
+<pre>
+this.route('archives', function() {
+    this.route('index', { path: '/' });
+    this.route('pageOne');
+    this.route('pageTwo');
+});
+</pre></li>
+  <li>Now head to templates/index.hbs and add any text before {outlet} 
+(the one double brackets.) If you do not know what it is, 
+then welcome to the world of <a href="http://handlebarsjs.com/" target="_blank">Handlebars</a>!
+Basically, you can think of it as the interface between plain HTML and Ember.js. 
+For all the code below <strong>please switch single bracket to double brackets!</strong></li>
+  <li>Now head to application.hbs and add the following:
+  <pre>
+{#link-to 'index'}My Personal Website{/link-to}
+{#link-to 'archives'}My archives{/link-to}
+  </pre></li>
+  <li>Now go to the archives template and add links to the two subpages. 
+  An example is <pre>{#link-to 'archives.pageOne'}My Personal Website{/link-to} </pre></li>
+  <li>Now add something on PageOne and PageTwo under archives before or 
+  after the {outlet}. In case you haven't figured out, {outlet} is usually where the child of the route is rendered so to speak.</li>
+</ol>
+<p> Visit <a href="http://emberjs.com/" target="_blank">EmberJS</a> 
+if you need more information, or this <a href="https://github.com/Deovandski/DeoEmberCliGuide/tree/2ece3cff3a71ab6a156aa53e39454f705bcfa6c6" target="_blank">link</a> 
+if your project does not match the picture below:</p>
+<a href="http://imgur.com/qNZ0zS8" target="_blank"><img height=300 src="http://i.imgur.com/qNZ0zS8.png" title="source: imgur.com" /></a>
+<p>Ready to go? Then let's move on to Step 8!</p>
 {{/if}}
 <div class="ul_li_colored_3 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_7}}</div>
 </section>
