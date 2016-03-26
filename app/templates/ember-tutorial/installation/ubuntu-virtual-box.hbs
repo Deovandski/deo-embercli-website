@@ -38,15 +38,15 @@ option for a quick and painless install (which only handles the created virtual 
 <p>1. Open terminal and run <code> sudo apt-get update</code> in order to update any leftover package.</p>
 <p>2. Now run the following commands in order install Git, NPM, NodeJS and some other necessary packages:</p>
 <ol>
-  <li><code>apt-get install git</code></li>
-  <li><code>apt-get install nodejs</code></li>
-  <li><code>apt-get install npm</code></li>
+  <li><code>sudo apt-get install git</code></li>
+  <li><code>sudo apt-get install npm</code></li>
 </ol>
 <p>3. Now run <code>npm -v</code> and you should receive a version of NPM installed. If you do, then let's keep going:</p>
 <ol>
-  <li><code>npm cache clean -f</code></li>
-  <li><code>npm install -g n</code></li>
-  <li><code>n stable</code></li>
+  <li><code>sudo npm cache clean -f</code></li>
+  <li><code>sudo npm install -g n</code></li>
+  <li><code>sudo n stable</code></li>
+  <li><code>sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}</code></li>
 </ol>
 <p>4. Now run <code>node -v</code> and you should receive the latest stable Node installed. If you do, then let's keep going again:</p>
 <ol>
