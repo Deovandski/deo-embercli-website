@@ -1,5 +1,5 @@
 <h2>Git & Github Tutorial</h2>
-<h3>Create an account & install Git</h3>
+<h3><strong>Step 4 - </strong>Create an account & install Git</h3>
 <section>
 {{#if emberTutorial.checkValue_4}}
 <p></p>
@@ -20,7 +20,7 @@ somewhere as we will soon use it on the next section.</p>
 {{/if}}
 <div class="ul_li_colored_2 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_4}}</div>
 </section>
-<h3>Setting up your project</h3>
+<h3><strong>Step 5 - </strong>Setting up your project</h3>
 <section>
 {{#if emberTutorial.checkValue_5}}
 <p></p>
@@ -40,23 +40,88 @@ to setup your Git information to your Github account:</p>
   <li>Now on your HOME folder, open the xxx.pub and you will see a text starting with <code>ssh-rsa XXXXXXX</code>.
   Copy the entire text, and go to <a href="https://github.com/settings/keys" target="_blank">Github Key Settings</a> 
   where you will create a new key and dump the content from the .pub file into the Key textbox.</li>
+  <li>Now that you saved the key on Github, go back to the terminal and use <code>ssh-add xxxx</code> 
+  in order to add your newly created key. Chances are that you will need to follow this step after every reboot. 
+  Since it is not such a pain, I have not searched for a more permanent solution. 
+  Plus, it also acts a last barrier of sorts for not authorized people to go through before they take control over your repos.</li>
   <li>Remember the SSH link that you had to save? You will now clone 
-  (create a local copy) the repo by using <code>git clone SSHLINK</code></li>
+  (create a local copy) of the repo by using <code>git clone xxxxxxx</code></li>
 </ol>
 <p>You can confirm that your repo has been cloned if you have a folder on your HOME directory with the repo name. 
-If so, use <code>cd NAMEOFREPO</code> and use <code>git status</code>. 
+If so, use <code>cd xxxxxx</code> and use <code>git status</code>. 
 If your output is like below, then you are ready for the next section:</p>
-<p>INSERT IMAGE</p>
+<p><a href="http://imgur.com/z89eekm" target="_blank"><img height=300 src="http://i.imgur.com/z89eekm.png" title="source: imgur.com" /></a></p>
 {{/if}}
 <div class="ul_li_colored_2 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_5}}</div>
 </section>
-<h3>How to use Git & Github</h3>
+<h3><strong>Step 6 - </strong>How to use Git & Github</h3>
 <section>
 {{#if emberTutorial.checkValue_6}}
-<p></p>                              <a href="#" target="_blank"> </a>
+<p></p>
 {{else}}
-<p>Now it is time make and save changes on your new repo!</p>
-<p>//TODO</p>
+<p>If you are not experienced with Github, then this section will quickly introduced you to the basics. 
+If you know your way around, then go inside your project folder, run <code>ember new xxxx</code> (where x is the name of your app) 
+followed by replacing your .gitignore with the one I have below and moving all of the generate files to the root of your project like my 
+<a href="https://github.com/Deovandski/DeoPersonalWebsite" target="_blank">personal website</a>.</p>
+<p>If you also have no idea about versioning, then think of it as restore points that you create at any moment, 
+but with many more functionalities like having multiple timelines of a single restore point (referred as branching.) 
+This branching can become very complicated very quickly, so on our repo we will only use the master branch which will look like a 
+chronological story or what you would see on Windows System Restore. </p>
+<p>You will create the "restore points" through commits, and synchronize with Github through pull and push commands. 
+First thing is to use terminal to enter your repo and scaffold your Ember App. 
+To do so, run <code>ember new xxxx</code> (where x is the name of your app.)</p>
+<p>Now you need to tell Git to ignore certain files and folders. This is a necessary step as 
+you can use it to protect confidential data from being sent to the server, 
+but also will allow your repo to be minimal in size as <code>npm install</code> and 
+<code>bower install</code> generated stuff can and should be only managed on the local version. 
+I made this error before on my Fakktion repo when I was just a newbie, 
+so I want you to beware of it right off the bat.</p>
+<p>Now, without the terminal, navigate to the generated folder within your project 
+and change your <strong>.gitignore</strong> to the following:</p>
+<pre>
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+
+# dependencies
+/node_modules
+/bower_components
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+npm-debug.log
+testem.log
+
+# coverage
+lcov.dat
+
+</pre>
+<p>Now we need to move all the contents of the inner folder to the root of your project. 
+After delete the empty folder, and your project should be very close to what I have on my 
+<a href="https://github.com/Deovandski/DeoPersonalWebsite" target="_blank">personal website</a>.</p>
+<p>If it is, then on your terminal run <code>git add --all</code> 
+in order to track everything on your project followed by <code>git commit -m "XXXXXXXXX"</code> 
+where XXXX is a small description of the commit. Now run <code>git push origin master</code> to 
+sync your local master branch timeline with the Github one. In the same way, 
+if you edit something on Github, you should use <code>git pull origin master</code> to get the latest changes.</p>
+<p>Beware to always sync your commits, before you edit an end that is commits behind/ahead. 
+Git is a wonderful tool to take care of diffs, behind/after commits and different timelines, but 
+we should keep it as easy as possible for now.</p>
+<p>If our Github and local repo has the same files, then you are ready to
+ do a quick test of your new Ember app by running <code>npm install</code> followed by <code>bower install</code>.</p>
+<p>Now run <code>Ember server</code>and see if your localhost:4200 looks like the following:</p>
+<p><a target="_blank" href="http://imgur.com/C7X7j0r"><img height=300 src="http://i.imgur.com/C7X7j0r.png" title="source: imgur.com" /></a></p>
+<p>Issues? If not, then move into the next section, otherwise see if your issue is one of the below:</p>
+<ol>
+  <li><strong>Launcher PhantomJS not found</strong>. To solve it, run <code>npm install -g phantomJS</code></li>
+  <li><strong>'xxx' is only available on ES6. (use 'esversion: 6')</strong>. To solve it, 
+  restart your virtual machine and run <code>npm install</code> followed by <code>bower install</code> on your new project again.</li>
+</ol>
 {{/if}}
 <div class="ul_li_colored_2 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_6}}</div>
 </section>
