@@ -4,7 +4,28 @@
 {{#if emberTutorial.checkValue_1}}
 <p></p>
 {{else}}
-<p>//TODO</p>
+<p>Everything has a beginning, and for this tutorial is having Ubuntu ready to go. 
+Although you could do the same on OSX and Windows, the steps are simply too different
+ for me to account for in this guide.</p>    <a href="" target="_blank"> </a>
+<p>If you are using Ubuntu 14.04 already, then awesome as you can mark the section as
+ complete and head to the overall dependencies. If not, stick around to a quick how to: </p>
+<p>1. Get <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a> and install it on your operating system.
+If you do not know what it is, VirtualBox is a <a href="https://en.wikipedia.org/wiki/Virtualization" target="_blank">virtualization</a>  
+program that allows you to run almost any OS inside your current one (not to be confused with
+<a href="https://en.wikipedia.org/wiki/Operating-system-level_virtualization" target="_blank">containers</a> like
+<a href="https://www.docker.com/" target="_blank">Docker</a> which are related, but not the same.)</p>
+<p>2. Download <a href="http://releases.ubuntu.com/14.04/" target="_blank">Ubuntu 14.04.4 LTS</a> Desktop ISO image.
+ If you know that you are using a x64 bit system, get the amd64 .iso, otherwise just grab the i386 .iso</p>
+<p>3. Open VirtualBox and create a new Ubuntu machine matching x64 for amd64 image or x32 for i386 image. 
+Have at least 1GB for RAM, and create a new VDI (virtualBox image) that contains at least 15 GB of Hard Drive (20GB is better.) 
+I recommend having it to be a fixed size due to performance, but it is your call!</p>
+<p>4. Open the settings for your newly created machine and add the image as a new optical disk.</p>
+<p>5. Start the machine and go through the installation process. Make sure to select the erase disk 
+option for a quick and painless install (which only handles the created virtual disk, so don't worry.)</p>
+<p>6. Upon login, Go to the VirtualBox menu and click Devices followed by "Insert Guest Additions CS image". Run the software, install it and then restart the virtual machine.</p>
+<p>7. Maximize the VirtualBox window, and check to see if the screen covers the entire window like below:</p>
+<p>INSERT IMAGE</p>
+<p>If not, search for possible troubleshoots on Google (or Bing if that's your thing because it is mine due to the reward points.)</p>
 {{/if}}
 <div class="ul_li_colored_1 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_1}}</div>
 </section>
@@ -13,16 +34,45 @@
 {{#if emberTutorial.checkValue_2}}
 <p></p>
 {{else}}
-<p>// TODO</p>
+<p>Now that your Ubuntu is ready to use, we need to install some basic requirements before we can proceed:</p>
+<p>1. Open terminal and run <code> sudo apt-get update</code> in order to update any leftover package.</p>
+<p>2. Now run the following commands in order install Git, NPM, NodeJS and some other necessary packages:</p>
+<ol>
+  <li><code>apt-get install git</code></li>
+  <li><code>apt-get install nodejs</code></li>
+  <li><code>apt-get install npm</code></li>
+</ol>
+<p>3. Now run <code>npm -v</code> and you should receive a version of NPM installed. If you do, then let's keep going:</p>
+<ol>
+  <li><code>npm cache clean -f</code></li>
+  <li><code>npm install -g n</code></li>
+  <li><code>n stable</code></li>
+</ol>
+<p>4. Now run <code>node -v</code> and you should receive the latest stable Node installed. If you do, then let's keep going again:</p>
+<ol>
+  <li><code>npm install ember-cli -g</code></li>
+  <li><code>npm install bower -g</code></li>
+  <li><code>wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh</code></li>
+</ol>
+<p>5. Run <code>ember -v</code> and you should get a number for response. If so, restart the machine as we are now going to the project dependencies:</p>
+<p></p>
 {{/if}}
-<div class="ul_li_colored_1 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_3}}</div>
+<div class="ul_li_colored_1 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_2}}</div>
 </section>
 <h3>Project Dependencies</h3>
 <section>
 {{#if emberTutorial.checkValue_3}}
 <p></p>
 {{else}}
-<p>//TODO</p>
+<p>Before we dig further into how things work, we will continue plow through the commands and get this website working on your Ubuntu. 
+This will make the rest of the tutorial focused on actual content rather than getting stuff to work...</p>
+<ol>
+  <li><code>git clone https://github.com/Deovandski/DeoPersonalWebsite.git</code></li>
+  <li><code>cd DeoPersonalWebsite</code></li>
+  <li><code>npm install</code></li>
+  <li><code>bower install</code></li>
+</ol>
+<p>Now the best part! run <code>ember server</code>, open a browser and go to localhost:4200. If the Index of this website loads, then Hooray! You are ready to move to the next section...</p>
 {{/if}}
-<div class="ul_li_colored_1 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_2}}</div>
+<div class="ul_li_colored_1 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_3}}</div>
 </section>
