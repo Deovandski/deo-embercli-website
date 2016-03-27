@@ -8,18 +8,23 @@
 	}
 */
 
-// Bootstrap
-@import "bootstrap";
-
-// Other Global Variables and setup.
+/* Global Variables and setup. */
 @import "globals";
 
-// Import all shared SCSS Tutorial codes
+/* Bootstrap */
+@import "bootstrap";
+
+/* Import all shared SCSS Tutorial codes */
 @import "sts_shared/imports";
 
-// Project Variables and setup.
-@import "dpw"; // Deo's Personal Website
-@import "sts"; // SASS Tutorial Styles
-@import "dsp"; // Deo's Space Program
-@import "ect"; // Ember CLI Tutorial
-@import "das"; // Deo's Archives Styles
+/* Project Variables and setup. */
+@import "dpw"; /* Deo's Personal Website */
+@import "sts"; /* SASS Tutorial Styles */
+@import "dsp"; /* Deo's Space Program */
+@import "ect"; /* Ember CLI Tutorial */
+@import "das"; /* Deo's Archives Styles */
+
+/* Make sure that footer will have its place on the page */
+body {
+	margin-bottom: 50px;
+}

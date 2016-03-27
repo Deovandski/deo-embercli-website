@@ -1,6 +1,25 @@
 // Google Fonts
 @import url(http://fonts.googleapis.com/css?family=Poiret+One|Orbitron:500);
 
+// Bootstrap
+$navbar-default-color: hsla(242, 100%, 7%, 1);
+$navbar-default-bg: hsla(183, 100%, 67%, 0.81);
+$navbar-default-border: hsla(202, 58%, 14%, 0.8);
+$navbar-default-link-color: hsla(202, 58%, 14%, 0.9);
+$navbar-default-link-hover-color: hsla(202, 58%, 14%, 0.9);
+$navbar-default-link-hover-bg: darken($navbar-default-bg, 20%);
+$navbar-default-link-active-color: hsla(202, 58%, 14%, 0.9);
+$navbar-default-link-active-bg: darken($navbar-default-bg, 40%);
+$navbar-default-link-disabled-color: hsla(202, 58%, 14%, 0.9);
+$navbar-default-link-disabled-bg: hsla(202, 58%, 14%, 0.9);
+$navbar-default-brand-color: hsla(202, 58%, 14%, 0.9);
+$navbar-default-brand-hover-color: hsla(202, 58%, 14%, 0.9);
+$navbar-default-brand-hover-bg: darken($navbar-default-bg, 20%);
+$navbar-default-toggle-hover-bg: darken($navbar-default-bg, 40%);
+$navbar-default-toggle-icon-bar-bg: hsla(202, 58%, 14%, 0.9);
+$navbar-default-toggle-border-color: hsla(202, 58%, 14%, 0.9);
+$navbar-margin-bottom: -20px;
+
 // Font Variables
 $poiret-one: 'Poiret One', cursive; 
 $orbitron: 'Orbitron', sans-serif;
@@ -17,10 +36,7 @@ $default-border-color: hsla(186, 100%, 50%, 1);
 html {
 	position: relative;
 	min-height: 100%;
-}
-
-body {
-	margin-bottom: 50px;
+	min-width: 250px;
 }
 
 h1 {
@@ -29,67 +45,14 @@ h1 {
 h2 {
 	font-family: $poiret-one;
 }
-// Header Navbar customization
-#navbar {
-	// Solves the whitespace navbar issue.
-    margin-bottom: -20px;
-	// Change colors around to match the site theme.
-	background-color: $header-bg-color;
-	border-color: $default-border-color;
-	.nav > li > a { 
-		color: $footer-font-color; 
-	}
-	#navbar_brand { 
-		color: darken($footer-font-color,15%); 
-	}
-	.nav > li > a:focus, 
-	.nav > li > a:hover { 
-		background-color: darken($header-bg-color, 20%);
-		color: lighten($header-font-color, 20%);
-	}
-}
-
-
 footer {
-	border-color: $default-border-color;
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 	height: 50px;
-	background-color: hsla(186, 100%, 50%, 0.31);
-	padding: 0.2em 0;
+	background-color: $navbar-default-bg;
+	color: $navbar-default-color;
 	font-family: 'Questrial', sans-serif;
-	nav {
-		float: left;
-	}
-	ul {
-		display: block;
-		list-style-type: none;
-		padding: 0;
-	}
-	li {
-	display: inline-block;
-		a {
-			color: $footer-font-color;
-			display: inline-block;
-			font-size: 14px;
-			letter-spacing: 1px;
-			padding: 10px;
-			text-decoration: none;
-			&:hover {
-				color: #888;
-			}
-		}
-	}
-	label {
-		color: $footer-font-color;
-		display: inline-block;
-		font-size: 14px;
-		letter-spacing: 1px;
-		padding: 10px;
-		text-decoration: none;
-		float: right;
-	}
 }
 
 
