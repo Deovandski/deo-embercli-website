@@ -11,6 +11,10 @@ engines:
     enabled: true
   bundler-audit:
     enabled: false
+  fixme:
+    enabled: true
+  duplication:
+    enabled: true
 ratings:
   paths:
     - "app/**"
@@ -18,12 +22,8 @@ ratings:
     - "dist/**"
     - "tests/**"
 exclude_paths:
-- Documents/**/*
-- bourbon/**/*
-- neat/**/*
 - node_modules/**/*
 - bower_components/**/*
 - dist/**/*
-- vendor/**/*
 - vendor/**/*
 - "README.md"

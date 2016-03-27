@@ -123,8 +123,6 @@ The following tools below will make maintance a breeze:</p>
 </ul>
 <p>If you do use CodeClimate, then I suggest you to update your <strong>.codeclimate.yml</strong> to the following:
 <pre>engines:
----
-engines:
   rubocop:
     enabled: false
   golint:
@@ -143,18 +141,10 @@ engines:
     enabled: true
 ratings:
   paths:
-  - "app/**"
-  - "config/**"
-  - "dist/**"
-  - "tests/**"
-  - "**.css"
-  - "**.inc"
-  - "**.js"
-  - "**.jsx"
-  - "**.module"
-  - "**.php"
-  - "**.py"
-  - "**.rb"
+    - "app/**"
+    - "config/**"
+    - "dist/**"
+    - "tests/**"
 exclude_paths:
 - node_modules/**/*
 - bower_components/**/*
@@ -162,28 +152,16 @@ exclude_paths:
 - vendor/**/*
 - "README.md"
 </pre></p>
-<p>One in a while Code Climate may release new engines, so you should keep
+<p>Once in a while Code Climate may release new engines, so you should keep
  an eye out for what is different. However, If you plan in using Code Coverage,
-  then you need to setup ember-cli-blanket:</p>
+  then you need to setup ember-cli-blanket with <code>ember install ember-cli-blanket</code></p>
 <ol>
-  <li>Add the following to your package.json:
-<pre>"codeclimate-test-reporter": "^0.3.1",
-"loader.js": "^4.0.0",
-</pre></li>
-  <li>Add the following to your bower.json:
-<pre>"dependencies": {
-  "loader.js": "^4.0.0"
-},
-"devDependencies": {
-  "blanket": "5e94fc30f2e694bb5c3718ddcbf60d467f4b4d26"
-}
-</pre></li>
-  <li>Create <strong>blanket-options.js</strong> under tests folder with:
+  <li>Now edit <strong>blanket-options.js</strong> under tests folder (Make sure to not only copy and paste):
 <pre>/* globals blanket, module */
 
 var options = {
-  modulePrefix: 'deo-personal-website',
-  filter: '//.*deo-personal-website/.*/',
+  modulePrefix: 'test-app', // Replace with your app name
+  filter: '//.*test-app/.*/', // Replace with your app name
   loaderExclusions: [],
   enableCoverage: true,
   cliOptions: {
@@ -199,12 +177,16 @@ if (typeof exports === 'undefined') {
 } else {
   module.exports = options;
 }
+
 </pre></li>
-  <li>Open testem.json on the root folder and change the test_page line to <code>"test_page": "tests/index.html?hidepassed&coverage",</code></li>
-  <li>Add the following to your .travis.yml (replace xxx with your repo token):
+  <li>Open testem.json on the root folder and change the test_page line 
+  to <code>"test_page": "tests/index.html?hidepassed&coverage",</code></li>
+  <li>Add the following to your .travis.yml (replace xxx with your Code 
+  CLimate repo token which can be found under Settings/Test Coverage/Travis):
 <pre>after_script:
   - CODECLIMATE_REPO_TOKEN=xxx codeclimate-test-reporter &lt; lcov.dat
 </pre></li>
+<li>Run <code>npm install</code> followed by <code>bower install</code></li>
 </ol>
 <p>The badge process is really similar, but since you will have quite a few of them, I suggest organizing your markdown in the following manner:
 <pre>[![Build Status][travis-badge]][travis] [![Test Coverage][testCoverage-badge]][testCoverage] 
