@@ -31,7 +31,8 @@ This website was created for the purpose to host all kinds of stuff about myself
 
 ## Ember Cli update
 
-1. Follow Project Update instructions on the choose [Ember Cli Release](https://github.com/ember-cli/ember-cli/releases)
+1. Follow Project Update instructions of the choosen [Ember Cli Release](https://github.com/ember-cli/ember-cli/releases)
+2. Carefully review what the update changed.
 2. ember install ember-cli-blanket
 3. npm install --save-dev ember-cli-sass
 4. ember install ember-cli-bootstrap-sassy
