@@ -1,4 +1,4 @@
-<h2>Testing Tutorial</h2>                              <a href="#" target="_blank"> </a>
+<h2>Testing Tutorial</h2>
 <h3><strong>Step 7 - </strong>Project Tests</h3>
 <section>
 {{#if emberTutorial.checkValue_7}}
@@ -56,16 +56,168 @@ if your project does not match the picture below:</p>
 {{#if emberTutorial.checkValue_8}}
 <p></p>
 {{else}}
-<p>// TODO</p>
+<p>Although your current project is really small, it is a good move to 
+setup testing earlier on, and so we will get TravisCI to build our project 
+and run tests everytime we push a commit to the remote (Github) master branch.</p>
+<p>Follow these steps to get TravisCI to work on your repo.</p>
+<ol>
+  <li>Open an account on <a href="https://travis-ci.org/" target="_blank">TravisCI</a>
+, and follow the steps to activate TravisCI on your repo.</li>
+  <li>Make any changes on your local repo and push it to the server in 
+  order to trigger a build as your Ember Cli comes already with a .travis.yml.
+  If it did not, then create one at the root of your repo with the following content:
+  <pre>
+  ---
+language: node_js
+node_js:
+  - "5.1"
+
+sudo: false
+
+cache:
+  directories:
+    - node_modules
+    - bower_components
+
+before_install:
+  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
+  - "npm config set spin false"
+  - "npm install -g npm@^3.6"
+
+install:
+  - npm install -g bower
+  - npm install
+  - bower install
+
+script:
+  - ember test
+  </pre></li>
+  <li>WHen your build is complete. Click the <img src="https://travis-ci.org/Deovandski/DeoPersonalWebsite.svg?branch=master">
+  that shows up on your buid and select <a href="https://en.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a> 
+  (which is a markup languague supported by Github.) It will be something like below:</li>
+  <pre>
+  [![Build Status](https://travis-ci.org/Deovandski/DeoPersonalWebsite.svg?branch=master)](https://travis-ci.org/Deovandski/DeoPersonalWebsite)
+  </pre>
+  <li>Now go to your README.md (or create one) and add your own Markdown of the badge. 
+  If you want to go one step further and make a cute page for your repo, 
+  then look into how Markdown is <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">used</a>.</li>
+</ol>
 {{/if}}
 <div class="ul_li_colored_3 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_8}}</div>
 </section>
-<h3><strong>Step 9 - </strong>CodeClimate</h3>
+<h3><strong>Step 9 - </strong>CodeClimate, Hakiri and Gemnasium</h3>
 <section>
 {{#if emberTutorial.checkValue_9}}
 <p></p>
 {{else}}
-<p>//TODO</p>
+<p>TravisCI is nice and all, but let's go one step further! 
+The following tools below will make maintance a breeze:</p>
+<ul>
+  <li><strong><a href="https://codeclimate.com/" target="_blank">CodeClimate</a></strong>: Track Code Coverage, code GPA and possible issues. 
+  When you create an account, you will need to patch your repo by downloading codeclimate-config.patch from the analysis configuration page 
+  (easily acessible from a yellow banner that appears informing you about the issue.) When you download it, move the file to the root of 
+  your repo and run <code>patch &lt; codeclimate-config.patch </code>. After delete the patch file and commit your changes so that it looks 
+  like this <a href="https://github.com/Deovandski/DeoEmberCliGuide/commit/c6e78fb134d8f686359078ac0796482300e2e2e9" target="_blank">commit</a>.</li>
+  <li><strong><a href="https://hakiri.io/" target="_blank">Hakiri</a></strong>: Track warnings and possible security issues for your code.</li>
+  <li><strong><a href="https://gemnasium.com/" target="_blank">Gemnasium</a></strong>: Track Project Dependencies and vunerabilities.</li>
+</ul>
+<p>If you do use CodeClimate, then I suggest you to update your <strong>.codeclimate.yml</strong> to the following:
+<pre>engines:
+---
+engines:
+  rubocop:
+    enabled: false
+  golint:
+    enabled: true
+  gofmt:
+    enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+  bundler-audit:
+    enabled: false
+  fixme:
+    enabled: true
+  duplication:
+    enabled: true
+ratings:
+  paths:
+  - "app/**"
+  - "config/**"
+  - "dist/**"
+  - "tests/**"
+  - "**.css"
+  - "**.inc"
+  - "**.js"
+  - "**.jsx"
+  - "**.module"
+  - "**.php"
+  - "**.py"
+  - "**.rb"
+exclude_paths:
+- node_modules/**/*
+- bower_components/**/*
+- dist/**/*
+- vendor/**/*
+- "README.md"
+</pre></p>
+<p>One in a while Code Climate may release new engines, so you should keep
+ an eye out for what is different. However, If you plan in using Code Coverage,
+  then you need to setup ember-cli-blanket:</p>
+<ol>
+  <li>Add the following to your package.json:
+<pre>"codeclimate-test-reporter": "^0.3.1",
+"loader.js": "^4.0.0",
+</pre></li>
+  <li>Add the following to your bower.json:
+<pre>"dependencies": {
+  "loader.js": "^4.0.0"
+},
+"devDependencies": {
+  "blanket": "5e94fc30f2e694bb5c3718ddcbf60d467f4b4d26"
+}
+</pre></li>
+  <li>Create <strong>blanket-options.js</strong> under tests folder with:
+<pre>/* globals blanket, module */
+
+var options = {
+  modulePrefix: 'deo-personal-website',
+  filter: '//.*deo-personal-website/.*/',
+  loaderExclusions: [],
+  enableCoverage: true,
+  cliOptions: {
+    lcovOptions: {
+      outputFile: 'lcov.dat',
+    },
+    reporters: ['lcov'],
+    autostart: true
+  }
+};
+if (typeof exports === 'undefined') {
+  blanket.options(options);
+} else {
+  module.exports = options;
+}
+</pre></li>
+  <li>Open testem.json on the root folder and change the test_page line to <code>"test_page": "tests/index.html?hidepassed&coverage",</code></li>
+  <li>Add the following to your .travis.yml (replace xxx with your repo token):
+<pre>after_script:
+  - CODECLIMATE_REPO_TOKEN=xxx codeclimate-test-reporter &lt; lcov.dat
+</pre></li>
+</ol>
+<p>The badge process is really similar, but since you will have quite a few of them, I suggest organizing your markdown in the following manner:
+<pre>[![Build Status][travis-badge]][travis] [![Test Coverage][testCoverage-badge]][testCoverage] 
+
+  
+[travis]: https://travis-ci.org/Deovandski/DeoEmberCliGuide
+[travis-badge]: https://travis-ci.org/Deovandski/DeoEmberCliGuide.svg?branch=master
+[testCoverage]: https://codeclimate.com/github/Deovandski/DeoEmberCliGuide/coverage
+[testCoverage-badge]: https://codeclimate.com/github/Deovandski/DeoEmberCliGuide/badges/coverage.svg
+</pre></p>
+<p>Need a break? This has been quite a lot to do, so you should get one! 
+If your repo does look like the <a href="https://github.com/Deovandski/DeoEmberCliGuide" target="_blank">example</a> one, 
+then it is time for Heroku! </p>
 {{/if}}
 <div class="ul_li_colored_3 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_9}}</div>
 </section>
