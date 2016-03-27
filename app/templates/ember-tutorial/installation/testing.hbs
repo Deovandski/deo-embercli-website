@@ -177,8 +177,8 @@ if (typeof exports === 'undefined') {
 } else {
   module.exports = options;
 }
-
 </pre></li>
+  <li>Open package.json on the root folder and add <code> "codeclimate-test-reporter": "^0.3.1",</code> as a dependency.</li>
   <li>Open testem.json on the root folder and change the test_page line 
   to <code>"test_page": "tests/index.html?hidepassed&coverage",</code></li>
   <li>Add the following to your .travis.yml (replace xxx with your Code 
