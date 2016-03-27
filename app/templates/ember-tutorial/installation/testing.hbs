@@ -184,11 +184,9 @@ if (typeof exports === 'undefined') {
   <li>Open package.json on the root folder and add <code> "codeclimate-test-reporter": "^0.3.1",</code> as a dependency.</li>
   <li>Open testem.json on the root folder and change the test_page line 
   to <code>"test_page": "tests/index.html?hidepassed&coverage",</code></li>
-  <li>Add the following to your .travis.yml (replace xxx with your Code 
-  CLimate repo token which can be found under Settings/Test Coverage/Travis):
-<pre>after_script:
-  - CODECLIMATE_REPO_TOKEN=xxx codeclimate-test-reporter &lt; lcov.dat
-</pre></li>
+  <li>Update the after_script section of your travis.yml like my <a href="https://github.com/Deovandski/DeoPersonalWebsite/blob/master/.travis.yml" target="_blank">version</a>
+  (make sure to replace the Code CLimate repo token with yours which can be found under Settings/Test Coverage/Travis):
+  </li>
 <li>Run <code>npm install</code> followed by <code>bower install</code></li>
 </ol>
 <p>The badge process is really similar, but since you will have quite a few of them, I suggest organizing your markdown in the following manner:
