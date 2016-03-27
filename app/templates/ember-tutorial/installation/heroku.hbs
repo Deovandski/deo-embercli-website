@@ -15,7 +15,7 @@ heroku create xxxxxx --buildpack https://github.com/tonycoco/heroku-buildpack-em
 git push heroku master</code></li>
 <li><code>heroku login</code></li>
 </ol>
-<p>If evreything went well, then you should have something like below at the end:<pre>
+<p>If everything went well, then you should have something like below at the end:<pre>
 remote: -----> Compressing...
 remote:        Done: 16M
 remote: -----> Launching...
@@ -39,7 +39,7 @@ this is not the end as you need to hook it up to Github for automatic deployment
 <p>Visit <a href="https://dashboard.heroku.com/apps" target="_blank">Heroku Dashboard</a>
 then navigate to your App, then select deploy followed by Github (under deployment method.)</p>
 <p>Type the name of your repo, search and click connect, then select the 
-<strong>Wait for CI to pass before deploy</strong> and finnaly select activate automatic deploy.</p>
+<strong>Wait for CI to pass before deploy</strong> and finally select activate automatic deploy.</p>
 <p>There you go! You now only need to deal with Github as every TravisCI 
 build will automatically active a deploy on the master branch. 
 When you get acquainted with all of those technologies, then I suggest 

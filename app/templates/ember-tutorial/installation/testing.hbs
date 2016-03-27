@@ -5,7 +5,7 @@
 <p></p>
 {{else}}
 <p>Now it is time to learn a bit about how Ember Cli works. 
-Ember is a very opiniated framework which means that it is quite strict 
+Ember is a very opinionated framework which means that it is quite strict 
 in how developers should tackle it. However, this also allows quicker 
 and neater development.</p>
 <p>Step 7 will guide you to create an index, about and an archive page with two subpages.
@@ -19,7 +19,7 @@ and neater development.</p>
   <li><code>ember g route archives/pageOne</code></li>
   <li><code>ember g route archives/pageTwo</code></li>
   <li>Now go to the App/router.js (which is where all the routes 
-  {think of it as urls} are defined), and change the archives route
+  {think of it as URLs} are defined), and change the archives route
   to the following:
 <pre>
 this.route('archives', function() {
@@ -58,7 +58,7 @@ if your project does not match the picture below:</p>
 {{else}}
 <p>Although your current project is really small, it is a good move to 
 setup testing earlier on, and so we will get TravisCI to build our project 
-and run tests everytime we push a commit to the remote (Github) master branch.</p>
+and run tests every time we push a commit to the remote (Github) master branch.</p>
 <p>Follow these steps to get TravisCI to work on your repo.</p>
 <ol>
   <li>Open an account on <a href="https://travis-ci.org/" target="_blank">TravisCI</a>
@@ -92,9 +92,9 @@ install:
 script:
   - ember test
   </pre></li>
-  <li>WHen your build is complete. Click the <img src="https://travis-ci.org/Deovandski/DeoPersonalWebsite.svg?branch=master">
-  that shows up on your buid and select <a href="https://en.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a> 
-  (which is a markup languague supported by Github.) It will be something like below:</li>
+  <li>When your build is complete. Click the <img src="https://travis-ci.org/Deovandski/DeoPersonalWebsite.svg?branch=master">
+  that shows up on your build and select <a href="https://en.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a> 
+  (which is a markup language supported by Github.) It will be something like below:</li>
   <pre>
   [![Build Status](https://travis-ci.org/Deovandski/DeoPersonalWebsite.svg?branch=master)](https://travis-ci.org/Deovandski/DeoPersonalWebsite)
   </pre>
@@ -111,15 +111,15 @@ script:
 <p></p>
 {{else}}
 <p>TravisCI is nice and all, but let's go one step further! 
-The following tools below will make maintance a breeze:</p>
+The following tools below will make maintenance a breeze:</p>
 <ul>
   <li><strong><a href="https://codeclimate.com/" target="_blank">CodeClimate</a></strong>: Track Code Coverage, code GPA and possible issues. 
   When you create an account, you will need to patch your repo by downloading codeclimate-config.patch from the analysis configuration page 
-  (easily acessible from a yellow banner that appears informing you about the issue.) When you download it, move the file to the root of 
+  (easily accessible from a yellow banner that appears informing you about the issue.) When you download it, move the file to the root of 
   your repo and run <code>patch &lt; codeclimate-config.patch </code>. After delete the patch file and commit your changes so that it looks 
   like this <a href="https://github.com/Deovandski/DeoEmberCliGuide/commit/c6e78fb134d8f686359078ac0796482300e2e2e9" target="_blank">commit</a>.</li>
   <li><strong><a href="https://hakiri.io/" target="_blank">Hakiri</a></strong>: Track warnings and possible security issues for your code.</li>
-  <li><strong><a href="https://gemnasium.com/" target="_blank">Gemnasium</a></strong>: Track Project Dependencies and vunerabilities.</li>
+  <li><strong><a href="https://gemnasium.com/" target="_blank">Gemnasium</a></strong>: Track Project Dependencies and vulnerabilities.</li>
 </ul>
 <p>If you do use CodeClimate, then I suggest you to update your <strong>.codeclimate.yml</strong> to the following:
 <pre>engines:
