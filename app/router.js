@@ -20,6 +20,7 @@ Router.map(function() {
 			this.route('testing');
 			this.route('heroku');
 		});
+		this.route('addons');
 		this.route('more');
 	});
 

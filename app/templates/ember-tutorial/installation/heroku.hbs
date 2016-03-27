@@ -1,4 +1,4 @@
-<h2>Heroku Tutorial</h2>                              <a href="#" target="_blank"> </a>
+<h2>Heroku Tutorial</h2>
 <h3><strong>Step 10 - </strong>Setup Account</h3>
 <section>
 {{#if emberTutorial.checkValue_10}}
@@ -8,8 +8,26 @@
 and get an account ready to go... After, go back to the root of your project 
 on the terminal and do the following:</p>
 <ol>
-<li>TODO</li>
+<li><code>heroku login</code> and follow the login process.</li>
+<li>Create the Heroku App with <code>
+heroku create xxxxxx --buildpack https://github.com/tonycoco/heroku-buildpack-ember-cli.git</code></li>
+<li>Deploy the App with <code>
+git push heroku master</code></li>
+<li><code>heroku login</code></li>
 </ol>
+<p>If evreything went well, then you should have something like below at the end:<pre>
+remote: -----> Compressing...
+remote:        Done: 16M
+remote: -----> Launching...
+remote:        Released v3
+remote:        https://deo-ember-cli-tutorial.herokuapp.com/ deployed to Heroku
+remote: 
+remote: Verifying deploy.... done.
+To https://git.heroku.com/deo-ember-cli-tutorial.git
+ * [new branch]      master -> master
+ </pre>
+Your website is now live at the https address! Congratulations! However, 
+this is not the end as you need to hook it up to Github for automatic deployment.</p>
 {{/if}}
 <div class="ul_li_colored_4 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_10}}</div>
 </section>
@@ -18,7 +36,17 @@ on the terminal and do the following:</p>
 {{#if emberTutorial.checkValue_11}}
 <p></p>
 {{else}}
-<p>// TODO</p>
+<p>Visit <a href="https://dashboard.heroku.com/apps" target="_blank">Heroku Dashboard</a>
+then navigate to your App, then select deploy followed by Github (under deployment method.)</p>
+<p>Type the name of your repo, search and click connect, then select the 
+<strong>Wait for CI to pass before deploy</strong> and finnaly select activate automatic deploy.</p>
+<p>There you go! You now only need to deal with Github as every TravisCI 
+build will automatically active a deploy on the master branch. 
+When you get acquainted with all of those technologies, then I suggest 
+having a production branch where that branch is the one being deployed to heroku.</p>
+<p>When it comes the time for you to update your project dependencies, 
+you may have some caching issues which can easily be resolved with the 
+instructions given by the <a href="https://github.com/tonycoco/heroku-buildpack-ember-cli" target="_blank">Ember Cli Herokupack</a>.</p>
 {{/if}}
 <div class="ul_li_colored_4 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_11}}</div>
 </section>
@@ -27,7 +55,10 @@ on the terminal and do the following:</p>
 {{#if emberTutorial.checkValue_12}}
 <p></p>
 {{else}}
-<p>//TODO</p>
+<p>This has been quite the journey... If your Github repo is in good shape, 
+badges are working and website is live, then it is now time for you to
+complete the section and check out the surprise below where you will 
+also be taken to the next part of the guide! </p>
 {{/if}}
 <div class="ul_li_colored_4 ember_confirmation">Section complete? {{input type="checkbox" checked=emberTutorial.checkValue_12}}</div>
 </section>
