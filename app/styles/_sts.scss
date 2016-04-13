@@ -1,4 +1,4 @@
-// Main Style file for SASS Tutorial STyles
+// Main Style file for SASS Tutorial Styles
 
 /*
 	Structure: 
@@ -34,13 +34,14 @@
 					width:100%;
 					line-height: 50px;
 					text-align: center;
-					border: 2px solid $header-background-color;
+					border: 1.5px solid darken($header-background-color,20%);
 					color: darken($header-font-color, 75%);
 					letter-spacing: 1px;
 					text-decoration: none;
 					text-transform: uppercase;
 					margin: 5px;
 					&:hover {
+						border: 2.5px solid darken($header-background-color,20%);
 						border-bottom: 2px solid $header-font-color;
 						color: darken($header-font-color, 25%);
 					}

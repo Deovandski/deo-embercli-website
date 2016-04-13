@@ -59,7 +59,7 @@ $ul-li-bg-color-four: hsla(287, 100%, 50%, 0.3);
 					width:100%;
 					line-height: 50px;
 					text-align: center;
-					border: 2px solid darken($ect-header-color, 35%);
+					border: 1px solid darken($ect-header-color, 35%);
 					color: darken($ect-header-color, 75%);
 					letter-spacing: 1px;
 					text-decoration: none;
@@ -127,7 +127,7 @@ $ul-li-bg-color-four: hsla(287, 100%, 50%, 0.3);
 	width: 100%;
 	height: 20px;
 	.progressBar{
-		border: 2px solid darken($ect-header-color, 75%);
+		border: 1px solid darken($ect-header-color, 75%);
 		height: inherit;
 		margin: 2px auto 2px auto;
 		width: 200px;
@@ -153,7 +153,7 @@ $ul-li-bg-color-four: hsla(287, 100%, 50%, 0.3);
 			background: $progress-bar-bg-color-four;
 		}
 		div.colored_section_end {
-			border-right: 2px solid darken($ect-header-color, 75%);
+			border-right: 1px solid darken($ect-header-color, 75%);
 		}
 	}
 }
@@ -189,7 +189,14 @@ $ul-li-bg-color-four: hsla(287, 100%, 50%, 0.3);
 }
 .ember_confirmation {
 	width: 185px;
-	border: 2px solid darken($ect-header-color, 75%);
+	border: 1px solid darken($ect-header-color, 75%);
+	label{
+		margin-right: 5px;
+		font-weight: normal;
+	}
+	input{
+		transform: scale(1.5);
+	}
 }
 .middle_setup {
 	text-align: center;
