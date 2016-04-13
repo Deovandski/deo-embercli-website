@@ -123,12 +123,12 @@ $ul-li-bg-color-four: hsla(287, 100%, 50%, 0.3);
 
 // progressBar Definitions
 
-#progressBarBase {
+.progressBarBase {
 	width: 100%;
 	height: 20px;
-	#progressBar{
+	.progressBar{
 		border: 2px solid darken($ect-header-color, 75%);
-		height: 20px;
+		height: inherit;
 		margin: 2px auto 2px auto;
 		width: 200px;
 		display: flex;
@@ -154,6 +154,24 @@ $ul-li-bg-color-four: hsla(287, 100%, 50%, 0.3);
 		}
 		div.colored_section_end {
 			border-right: 2px solid darken($ect-header-color, 75%);
+		}
+	}
+}
+.progressBarStepsBase{
+	@extend .progressBarBase;
+	height: 40px;
+	.progressBar{
+		div.colored_1 {
+	background: $ul-li-bg-color-one;
+		}
+		div.colored_2 {
+			background: $ul-li-bg-color-two;
+		}
+		div.colored_3 {
+			background: $ul-li-bg-color-three;
+		}
+		div.colored_4 {
+			background: $ul-li-bg-color-four;
 		}
 	}
 }
