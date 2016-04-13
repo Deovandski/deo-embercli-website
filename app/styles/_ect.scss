@@ -55,7 +55,7 @@ $ul-li-bg-color-four: hsla(287, 100%, 50%, 0.3);
 					-moz-transition: all 0.1s;
 					transition: all 0.1s;
 				a {
-					padding: 5px;
+					padding: 7px;
 					width:100%;
 					line-height: 50px;
 					text-align: center;
@@ -71,9 +71,7 @@ $ul-li-bg-color-four: hsla(287, 100%, 50%, 0.3);
 					}
 				}
 			&:hover {
-						-ms-transform: rotatex(360deg);
-						-webkit-transform: rotatex(360deg);
-						transform: rotatex(360deg);			
+						transform: scale(1.2,1.2);
 				}
 			}
 		}
