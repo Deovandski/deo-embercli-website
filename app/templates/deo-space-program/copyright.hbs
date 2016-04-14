@@ -1,45 +1,56 @@
 <div id="DSP_BG_copyright" class="DSP_BG">
+	
 	<div id="DSP_header">
-		<h1>Welcome to Deo's Space Program!</h1>
+	<h1>Welcome to Deo's Space Program!</h1>
 		<div id="logo"><img src="http://i.imgur.com/poXwUfq.png" alt="Deo's Space Program Logo" width="50%" /></div>
-		<nav>
-			<ul>
-				<li>{{#link-to 'deoSpaceProgram.index'}}Home{{/link-to}}</li>
-				<li>{{#link-to 'deoSpaceProgram.history'}}History{{/link-to}}</li>
-				<li>{{#link-to 'deoSpaceProgram.kerbals'}}Kerbals{{/link-to}}</li>
-				<li>{{#link-to 'deoSpaceProgram.missions'}}Missions{{/link-to}}</li>
-				<li>{{#link-to 'deoSpaceProgram.achievements'}}Achievements{{/link-to}}</li>
-				<li>{{#link-to 'deoSpaceProgram.future'}}Future{{/link-to}}</li>
-				<li>{{#link-to 'deoSpaceProgram.copyright' id="active"}}Copyright{{/link-to}}</li>
-			</ul>
-		</nav>
 	</div>
-	<div id="DSP_main" class="container">
-		<section>
-		<p>All info about copyright info will be add on the next iteration... If you are the owner of one of the Miku pictures that I made use of, please contact on FB or Twitter so that I can write down your contact. This website is non-commercial and non-profit!</p>
-		<table>
-		<caption>Flag Image Sources</caption>
-		<tr id="table_header">
-		<th scope="col">Image</th>
-		<th scope="col">Source</th>
-		</tr>
-		<tr>
-		<td><img src="http://i.imgur.com/6nlqxKp.jpg" alt="Miku looking towards nightfall." width="100%" /></td>
-		<td class="link_info"><a href="http://wallpaperest.com/anime-girl-at-sunset-wallpaper-162500">Wallpaperest</a></td>
-		</tr>
-		<tr>
-		<td><img src="http://i.imgur.com/WBOZ2jm.jpg" alt="Miku in front of the moon." width="100%" /></td>
-		<td class="link_info">Could not find source</td>
-		</tr>
-		<tr>
-		<td><img src="http://i.imgur.com/US8YA8B.jpg" alt="Miku Kawaii pose" width="100%" /></td>
-		<td class="link_info"><a href="http://wallpapercave.com/w/RZ32oK0">WallpaperCave</a></td>
-		</tr>
-		<tr>
-		<td><img src="http://i.imgur.com/UinVmR0.jpg" alt="Another Miku Kawaii pose" width="100%" /></td>
-		<td class="link_info"><a href="http://vocaloid.wikia.com/wiki/Hatsune_Miku_-Project_DIVA-_F_2nd">Project Diva F 2nd Photo Capture</a></td>
-		</tr>						
-		</table>
-		</section>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ul class="nav nav_sidebar">
+					<li>{{#link-to 'deoSpaceProgram.index'}}Home{{/link-to}}</li>
+					<li>{{#link-to 'deoSpaceProgram.history'}}History{{/link-to}}</li>
+					<li>{{#link-to 'deoSpaceProgram.kerbals'}}Kerbals{{/link-to}}</li>
+					<li>{{#link-to 'deoSpaceProgram.missions'}}Missions{{/link-to}}</li>
+					<li>{{#link-to 'deoSpaceProgram.achievements'}}Achievements{{/link-to}}</li>
+					<li>{{#link-to 'deoSpaceProgram.future'}}Future{{/link-to}}</li>
+					<li id="nav_link_active">{{#link-to 'deoSpaceProgram.copyright' disabled=true}}Copyright{{/link-to}}</li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-md-10 main" >
+				<div id="DSP_main">
+					<section>
+					<p>All info about copyright info will be add on the next iteration... If you are the owner of one of the Miku pictures that I made use of, please contact on FB or Twitter so that I can write down your contact. This website is non-commercial and non-profit!</p>
+					<table>
+					<caption>Flag Image Sources</caption>
+					<tr id="table_header">
+					<th scope="col">Image</th>
+					<th scope="col">Source</th>
+					</tr>
+					<tr>
+					<td><img src="http://i.imgur.com/6nlqxKp.jpg" alt="Miku looking towards nightfall." width="100%" /></td>
+					<td class="link_info"><a href="http://wallpaperest.com/anime-girl-at-sunset-wallpaper-162500">Wallpaperest</a></td>
+					</tr>
+					<tr>
+					<td><img src="http://i.imgur.com/WBOZ2jm.jpg" alt="Miku in front of the moon." width="100%" /></td>
+					<td class="link_info">Could not find source</td>
+					</tr>
+					<tr>
+					<td><img src="http://i.imgur.com/US8YA8B.jpg" alt="Miku Kawaii pose" width="100%" /></td>
+					<td class="link_info"><a href="http://wallpapercave.com/w/RZ32oK0">WallpaperCave</a></td>
+					</tr>
+					<tr>
+					<td><img src="http://i.imgur.com/UinVmR0.jpg" alt="Another Miku Kawaii pose" width="100%" /></td>
+					<td class="link_info"><a href="http://vocaloid.wikia.com/wiki/Hatsune_Miku_-Project_DIVA-_F_2nd">Project Diva F 2nd Photo Capture</a></td>
+					</tr>
+					</table>
+					</section>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
+
+
+
+

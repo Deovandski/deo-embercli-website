@@ -9,6 +9,10 @@
 	}
 */
 
+// Variables
+
+$dsp-background-color: hsla(190, 70%, 60%, 0.97);
+
 // #DSP_header Definitions
 
 #DSP_header {
@@ -78,8 +82,8 @@
 // #DSP_main Definitions
 
 #DSP_main {
-    padding: 25px;
-    background: hsla(190, 70%, 60%, 0.97);
+    padding-bottom: 25px;
+    background: $dsp-background-color;
     background-clip: content-box;
 	bottom:50px;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -152,8 +156,24 @@
     background-image: url("http://i.imgur.com/aX47gqR.png");
 }
 
+// Sidebar definitions
 
-
+.nav_sidebar{
+    padding-bottom: 25px;
+	li {
+		background: $dsp-background-color;
+		border-style: solid;
+   		border-width: 1px;
+		border-color: darken($dsp-background-color,35%);
+		a {
+			color: hsla(178, 100%, 0%, 1);
+		}
+	}
+}
+#nav_link_active{
+	background: lighten($dsp-background-color,40%);
+	border-color: darken($dsp-background-color,70%);
+}
 
 // Specific Page Definitons
 

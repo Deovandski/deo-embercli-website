@@ -1,22 +1,32 @@
 <div id="DSP_BG_future" class="DSP_BG">
+	
 	<div id="DSP_header">
-		<h1>Welcome to Deo's Space Program!</h1>
+	<h1>Welcome to Deo's Space Program!</h1>
 		<div id="logo"><img src="http://i.imgur.com/poXwUfq.png" alt="Deo's Space Program Logo" width="50%" /></div>
-		<nav>
-			<ul>
-				<li>{{#link-to 'deoSpaceProgram.index'}}Home{{/link-to}}</li>
-				<li>{{#link-to 'deoSpaceProgram.history'}}History{{/link-to}}</li>
-				<li>{{#link-to 'deoSpaceProgram.kerbals'}}Kerbals{{/link-to}}</li>
-				<li>{{#link-to 'deoSpaceProgram.missions'}}Missions{{/link-to}}</li>
-				<li>{{#link-to 'deoSpaceProgram.achievements'}}Achievements{{/link-to}}</li>
-				<li>{{#link-to 'deoSpaceProgram.future' id="active"}}Future{{/link-to}}</li>
-				<li>{{#link-to 'deoSpaceProgram.copyright'}}Copyright{{/link-to}}</li>
-			</ul>
-		</nav>
 	</div>
-	<div id="DSP_main" class="container">
-		<section>
-			<p>TODO</p>
-		</section>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ul class="nav nav_sidebar">
+					<li>{{#link-to 'deoSpaceProgram.index'}}Home{{/link-to}}</li>
+					<li>{{#link-to 'deoSpaceProgram.history'}}History{{/link-to}}</li>
+					<li>{{#link-to 'deoSpaceProgram.kerbals'}}Kerbals{{/link-to}}</li>
+					<li>{{#link-to 'deoSpaceProgram.missions'}}Missions{{/link-to}}</li>
+					<li>{{#link-to 'deoSpaceProgram.achievements'}}Achievements{{/link-to}}</li>
+					<li id="nav_link_active">{{#link-to 'deoSpaceProgram.future' disabled=true}}Future{{/link-to}}</li>
+					<li>{{#link-to 'deoSpaceProgram.copyright'}}Copyright{{/link-to}}</li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-md-10 main" >
+				<div id="DSP_main">
+					<section>
+						<article class="intro"></article>
+					</section>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
+
+
+
