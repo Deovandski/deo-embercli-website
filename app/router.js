@@ -42,9 +42,7 @@ Router.map(function() {
 		this.route('index', { path: '/' });
 		this.route('history');
 		this.route('kerbals');
-		this.route('missions');
-		this.route('achievements');
-		this.route('future');
+		this.route('liftoffCalculator');
 		this.route('copyright');
 	});
 
