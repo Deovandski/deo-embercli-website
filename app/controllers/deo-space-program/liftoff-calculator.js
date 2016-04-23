@@ -122,121 +122,148 @@ export default Ember.Controller.extend({
   // Calculate necessary engines and their total cost bassed on user Input.
   calculateEnginesReqs: Ember.computed('selectedBodyGravity', 'vesselWeight', 'desiredTWR', 'TWR_vac', 'TWR_atm', function() {
     // Offload the huge verification on the second IF statement.
-    console.log('FUCK');
     var commonVerification = false;
     if (this.get('selectedBodyGravity') > 0 && this.get('vesselWeight') > 0 && this.get('desiredTWR') > 0){commonVerification = true;}
     
-    console.log(commonVerification);
     // If vac or atm is seleted, perform the calc.
     if (commonVerification === true && this.get('TWR_vac') === true || commonVerification === true && this.get('TWR_atm') === true){
       // Setup what the user needs in kN
       var kn = this.get('selectedBodyGravity') * this.get('vesselWeight') * this.get('desiredTWR');
       this.set('kiloNewtonsNeeded', kn);
       
+      // Type of TM selection
+      /*
+       * 0 = TWR_MT_ATM
+       * 1 = TWR_MT_VAC
+       * 2 = (TWR_MT_VAC + TWR_MT_ATM) / 2
+      */
+      var TM_type = -1;
       
+      // engineAmount Calculation Vars
+      // Radial Mounted Engine Constants (MT values are in KN.)
+      var puffCalculatedAmount = 0;
+      var thudCalculatedAmount = 0;
+      var twitchCalculatedAmount = 0;
+      var spiderCalculatedAmount = 0;
+      // Tiny Mounted Engine Constants (MT values are in KN.)
+      var sparkCalculatedAmount = 0;
+      var antCalculatedAmount = 0;
+      // Small Mounted Engine Constants (MT values are in KN.)
+      var nervCalculatedAmount = 0;
+      var dartCalculatedAmount = 0;
+      var rapierCalculatedAmount = 0;
+      var vectorCalculatedAmount = 0;
+      var swivelCalculatedAmount = 0;
+      var reliantCalculatedAmount = 0;
+      var terrierCalculatedAmount = 0;
+      // Large Mounted Engine Constants (MT values are in KN.)
+      var twinboarCalculatedAmount = 0;
+      var mainsalCalculatedAmount = 0;
+      var skipperCalculatedAmount = 0;
+      var poodleCalculatedAmount = 0;
+      // Extra Large Mounted Engine Constants (MT values are in KN.)
+      var mammothCalculatedAmount = 0;
+      var rhinoCalculatedAmount = 0;
+  
       if(this.get('TWR_atm') === true && this.get('TWR_vac') === false){
-        
-        this.set('puffAmount',50); this.set('puffTotalCost',10);
-        console.log(this.get('puffAmount'));
+        TM_type = 0;
       }
       else if(this.get('TWR_atm') === false && this.get('TWR_vac') === true){
-        
+        TM_type = 1;
       }
       else{
-        
+        TM_type = 2;
       }
       
-      /*
+      if (TM_type === 0){
+        /*
   PUFF_MT_ATM
   PUFF_MT_VAC
-  PUFF_COST
   THUD_MT_ATM
   THUD_MT_VAC
-  THUD_COST
   TWITCH_MT_ATM
   TWITCH_MT_VAC
-  TWITCH_COST
   SPIDER_MT_ATM
   SPIDER_MT_VAC
-  SPIDER_COST
-  
+  * 
   SPARK_MT_ATM
   SPARK_MT_VAC
-  SPARK_COST
   ANT_MT_ATM
   ANT_MT_VAC
-  ANT_COST
   NERV_MT_ATM
-  NERV_MT_VACNERV_COST
+  NERV_MT_VAC
+  *       /*
   
   DART_MT_ATM
   DART_MT_VAC
-  DART_COST
+  
   RAPIER_MT_ATM
   RAPIER_MT_VAC
-  RAPIER_COST
+  
   VECTOR_MT_ATM
   VECTOR_MT_VAC
-  VECTOR_COST
+  
   SWIVEL_MT_ATM
   SWIVEL_MT_VAC
-  SWIVEL_COST
+  
   RELIANT_MT_ATM
   RELIANT_MT_VAC
-  RELIANT_COST
+  
   TERRIER_MT_ATM
   TERRIER_MT_VAC
-  TERRIER_COST
+  
   
   TWINBOAR_MT_ATM
   TWINBOAR_MT_VAC
-  TWINBOAR_COST
+  
   MAINSAL_MT_ATM
   MAINSAL_MT_VAC
-  MAINSAL_COST
+  
   SKIPPER_MT_ATM
   SKIPPER_MT_VAC
-  SKIPPER_COST
+  
   POODLE_MT_ATM
   POODLE_MT_VAC
-  POODLE_COST
+  
   
   MAMMOTH_MT_ATM
   MAMMOTH_MT_VAC
-  MAMMOTH_COST
+  
   RHINO_MT_ATM
   RHINO_MT_VAC
-  RHINO_COST
-      
+  
       */
+      }
+      else if(TM_type === 1){
+      }
+      else if(TM_type === 2){
+      }
       
-      
-      // Radial Engines calculation block
-        
       // Radial Mounted Engine Constants (MT values are in KN.)
-      this.set('puffAmount',0); this.set('puffTotalCost',0);
-      this.set('thudAmount',0); this.set('thudTotalCost',0);
-      this.set('twitchAmount',0); this.set('twitchTotalCost',0);
-      this.set('spiderAmount',0); this.set('spiderTotalCost',0);
+      this.set('puffAmount',puffCalculatedAmount); this.set('puffTotalCost',this.get('puffAmount')*this.get('PUFF_COST'));
+      this.set('thudAmount',thudCalculatedAmount); this.set('thudTotalCost',this.get('thudAmount')*this.get('THUD_COST'));
+      this.set('twitchAmount',twitchCalculatedAmount); this.set('twitchTotalCost',this.get('twitchAmount')*this.get('TWITCH_COST'));
+      this.set('spiderAmount',spiderCalculatedAmount); this.set('spiderTotalCost',this.get('spiderAmount')*this.get('SPIDER_COST'));
       // Tiny Mounted Engine Constants (MT values are in KN.)
-      this.set('sparkAmount',0); this.set('sparkTotalCost',0);
-      this.set('antAmount',0); this.set('antTotalCost',0);
+      this.set('sparkAmount',sparkCalculatedAmount); this.set('sparkTotalCost',this.get('sparkAmount')*this.get('SPARK_COST'));
+      this.set('antAmount',antCalculatedAmount); this.set('antTotalCost',this.get('antAmount')*this.get('ANT_COST'));
       // Small Mounted Engine Constants (MT values are in KN.)
-      this.set('nervAmount',0); this.set('nervTotalCost',0);
-      this.set('dartAmount',0); this.set('dartTotalCost',0);
-      this.set('rapierAmount',0); this.set('rapierTotalCost',0);
-      this.set('vectorAmount',0); this.set('vectorTotalCost',0);
-      this.set('swivelAmount',0); this.set('swivelTotalCost',0);
-      this.set('reliantAmount',0); this.set('reliantTotalCost',0);
-      this.set('terrierAmount',0); this.set('terrierTotalCost',0);
+      this.set('nervAmount',nervCalculatedAmount); this.set('nervTotalCost',this.get('nervAmount')*this.get('NERV_COST'));
+      this.set('dartAmount',dartCalculatedAmount); this.set('dartTotalCost',this.get('dartAmount')*this.get('DART_COST'));
+      this.set('rapierAmount',rapierCalculatedAmount); this.set('rapierTotalCost',this.get('rapierAmount')*this.get('RAPIER_COST'));
+      this.set('vectorAmount',vectorCalculatedAmount); this.set('vectorTotalCost',this.get('vectorAmount')*this.get('VECTOR_COST'));
+      this.set('swivelAmount',swivelCalculatedAmount); this.set('swivelTotalCost',this.get('swivelAmount')*this.get('SWIVEL_COST'));
+      this.set('reliantAmount',reliantCalculatedAmount); this.set('reliantTotalCost',this.get('reliantAmount')*this.get('RELIANT_COST'));
+      this.set('terrierAmount',terrierCalculatedAmount); this.set('terrierTotalCost',this.get('terrierAmount')*this.get('TERRIER_COST'));
       // Large Mounted Engine Constants (MT values are in KN.)
-      this.set('twinboarAmount',0); this.set('twinboarTotalCost',0);
-      this.set('mainsalAmount',0); this.set('mainsalTotalCost',0);
-      this.set('skipperAmount',0); this.set('skipperTotalCost',0);
-      this.set('poodleAmount',0); this.set('poodleTotalCost',0);
+      this.set('twinboarAmount',twinboarCalculatedAmount); this.set('twinboarTotalCost',this.get('twinboarAmount')*this.get('TWINBOAR_COST'));
+      this.set('mainsalAmount',mainsalCalculatedAmount); this.set('mainsalTotalCost',this.get('mainsalAmount')*this.get('MAINSAL_COST'));
+      this.set('skipperAmount',skipperCalculatedAmount); this.set('skipperTotalCost',this.get('skipperAmount')*this.get('SKIPPER_COST'));
+      this.set('poodleAmount',poodleCalculatedAmount); this.set('poodleTotalCost',this.get('poodleAmount')*this.get('POODLE_COST'));
       // Extra Large Mounted Engine Constants (MT values are in KN.)
-      this.set('mammothAmount',0); this.set('mammothTotalCost',0);
-      this.set('rhinoAmount',0); this.set('rhinoTotalCost',0);
+      this.set('mammothAmount',mammothCalculatedAmount); this.set('mammothTotalCost',this.get('mammothAmount')*this.get('MAMMOTH_COST'));
+      this.set('rhinoAmount',rhinoCalculatedAmount); this.set('rhinoTotalCost',this.get('rhinoAmount')*this.get('RHINO_COST'));
+    
     }
     else{
       // Clear up to hint user of bad input.
