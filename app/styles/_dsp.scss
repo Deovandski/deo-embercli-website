@@ -228,3 +228,10 @@ $dsp-background-color: hsla(190, 70%, 60%, 0.97);
 		}
 	}
 }
+.dsp_checkbox{
+	text-align: center;
+	border-style: solid;
+	border-width: 1px;
+	padding: 3px;
+	background: lighten($dsp-background-color, 20%);
+}

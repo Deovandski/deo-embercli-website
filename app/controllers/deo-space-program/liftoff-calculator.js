@@ -116,13 +116,100 @@ export default Ember.Controller.extend({
   vesselWeight: 50, //tones
   desiredTWR: 2,
   kiloNewtonsNeeded: 0,
+  TWR_vac: false,
+  TWR_atm: true,
   
   // Calculate necessary engines and their total cost bassed on user Input.
-  twrCalc: Ember.computed('selectedBodyGravity', 'vesselWeight', 'desiredTWR', function() {
-    if (this.get('selectedBodyGravity') > 0 && this.get('vesselWeight') > 0 && this.get('desiredTWR') > 0 ){
+  calculateEnginesReqs: Ember.computed('selectedBodyGravity', 'vesselWeight', 'desiredTWR', 'TWR_vac', 'TWR_atm', function() {
+    // Offload the huge verification on the second IF statement.
+    console.log('FUCK');
+    var commonVerification = false;
+    if (this.get('selectedBodyGravity') > 0 && this.get('vesselWeight') > 0 && this.get('desiredTWR') > 0){commonVerification = true;}
+    
+    console.log(commonVerification);
+    // If vac or atm is seleted, perform the calc.
+    if (commonVerification === true && this.get('TWR_vac') === true || commonVerification === true && this.get('TWR_atm') === true){
       // Setup what the user needs in kN
       var kn = this.get('selectedBodyGravity') * this.get('vesselWeight') * this.get('desiredTWR');
       this.set('kiloNewtonsNeeded', kn);
+      
+      
+      if(this.get('TWR_atm') === true && this.get('TWR_vac') === false){
+        
+        this.set('puffAmount',50); this.set('puffTotalCost',10);
+        console.log(this.get('puffAmount'));
+      }
+      else if(this.get('TWR_atm') === false && this.get('TWR_vac') === true){
+        
+      }
+      else{
+        
+      }
+      
+      /*
+  PUFF_MT_ATM
+  PUFF_MT_VAC
+  PUFF_COST
+  THUD_MT_ATM
+  THUD_MT_VAC
+  THUD_COST
+  TWITCH_MT_ATM
+  TWITCH_MT_VAC
+  TWITCH_COST
+  SPIDER_MT_ATM
+  SPIDER_MT_VAC
+  SPIDER_COST
+  
+  SPARK_MT_ATM
+  SPARK_MT_VAC
+  SPARK_COST
+  ANT_MT_ATM
+  ANT_MT_VAC
+  ANT_COST
+  NERV_MT_ATM
+  NERV_MT_VACNERV_COST
+  
+  DART_MT_ATM
+  DART_MT_VAC
+  DART_COST
+  RAPIER_MT_ATM
+  RAPIER_MT_VAC
+  RAPIER_COST
+  VECTOR_MT_ATM
+  VECTOR_MT_VAC
+  VECTOR_COST
+  SWIVEL_MT_ATM
+  SWIVEL_MT_VAC
+  SWIVEL_COST
+  RELIANT_MT_ATM
+  RELIANT_MT_VAC
+  RELIANT_COST
+  TERRIER_MT_ATM
+  TERRIER_MT_VAC
+  TERRIER_COST
+  
+  TWINBOAR_MT_ATM
+  TWINBOAR_MT_VAC
+  TWINBOAR_COST
+  MAINSAL_MT_ATM
+  MAINSAL_MT_VAC
+  MAINSAL_COST
+  SKIPPER_MT_ATM
+  SKIPPER_MT_VAC
+  SKIPPER_COST
+  POODLE_MT_ATM
+  POODLE_MT_VAC
+  POODLE_COST
+  
+  MAMMOTH_MT_ATM
+  MAMMOTH_MT_VAC
+  MAMMOTH_COST
+  RHINO_MT_ATM
+  RHINO_MT_VAC
+  RHINO_COST
+      
+      */
+      
       
       // Radial Engines calculation block
         

@@ -23,11 +23,12 @@
 						<p>Not sure which engine to select for a stage? 
 						Well, then you have come to the right place 
 						as this calculator is about engine selection based on the vessel weight and the body where liftoff is happening</p>
-						<p>{{bodySelectedWatcher}}{{twrCalc}}
+						<p>{{bodySelectedWatcher}}{{calculateEnginesReqs}}
 							<label class="dsp_select_label">Body:</label> <div class="dsp_select">{{custom-select content=KSP_BODIES action=(action (mut selectedBodyName))}}</div>
 							{{selectedBodyName}} gravity is {{selectedBodyGravity}} m/s<sup>2</sup></p>
 						<p><label>Vessel Mass:</label> {{input type="number" placeholder=0 value=vesselWeight}} Tons</p>
 						<p><label>Desired TWR:</label> {{input type="number" placeholder=2 value=desiredTWR}}<label>kN needed:</label> {{kiloNewtonsNeeded}} kN </p>
+						<p>Stage will be used on: <label class="dsp_checkbox">Vaccum: {{input type="checkbox" checked=TWR_vac}}</label>  <label class="dsp_checkbox">Atmosphere: {{input type="checkbox" checked=TWR_atm}} (1 atm)</label></p>
 						<div class="dsp_back_top">
 							<label><a href="deoSpaceProgram/liftoffCalculator#radial">Radial Engines</a></label>
 							<label><a href="deoSpaceProgram/liftoffCalculator#tiny">Tiny Engines</a></label>
