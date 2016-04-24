@@ -20,15 +20,27 @@
         <div id="DSP_main">
           <section>
             <h2>DSP Liftoff Calculator for KSP</h2>
-            <p>Not sure which engine to select for a stage? Well, then you have come to the right place!</p>
-            <p>Due to the amount of informa</p>
-            <p>{{bodySelectedWatcher}}{{calculateEnginesReqs}}
+            <p>Not sure which engine to select for a liftoff stage? Well, then wait no more!</p>
+            <p>This calculator will give you an idea of which engine you should choose for a liftoff in a any given Kerbal Space Program body.</p>
+            <p>{{bodySelectedWatcher}}{{enginesReqsWatcher}}
               <label class="dsp_select_label">Body:</label> <div class="dsp_select">{{custom-select content=KSP_BODIES action=(action (mut selectedBodyName))}}</div>
               {{selectedBodyName}} gravity is {{selectedBodyGravity}} m/s<sup>2</sup></p>
-            <p><label>Vessel Mass:</label> {{input type="number" placeholder=0 value=vesselWeight}} Tons</p>
+            <p><label>Vessel Dry Mass:</label> {{input type="number" placeholder=0 value=vesselWeight}} Tons</p>
             <p><label>Desired TWR:</label> {{input type="number" placeholder=2 value=desiredTWR}} Thrust to Weight.</p>
-            <p><label>Burn Time:</label> {{input type="number" placeholder=60 value=burnTime}} Seconds</p>
+            <p><label>Burn Time (Full Throttle):</label> {{input type="number" placeholder=60 value=burnTime}} Seconds.</p>
             <p>Stage will be used on: <label class="dsp_checkbox">Vaccum: {{input type="checkbox" checked=TWR_vac}}</label>  <label class="dsp_checkbox">Atmosphere: {{input type="checkbox" checked=TWR_atm}} (1 atm)</label></p>
+            <p><label>Quick Notes:</label></p>
+            <ol>
+            <li>Approximated values.
+             This calculator is meant to inform you about the TWR performace of a vessel that remains in full throttle for the duration of the burn time with no leftover fuel. 
+             You may add a seconds stage as the dry mass in order to calculate how powerful and costly your first stage needs to be. 
+             If you need to know how much Delta-v you will have, search instead for Mechjeb2.
+             </li>
+             <li><strong>"-1"</strong> Values implies issues with calculating. If all of them displays <strong>"-1"</strong> , please revise your input. 
+             Max Vessel mass allowed is 1 billion tons, Burn time is 550 seconds and max TWR is 999.</li>
+             <li>Source code for this calculator can be found at <a href="https://github.com/Deovandski/DeoPersonalWebsite/blob/master/app/controllers/deo-space-program/liftoff-calculator.js" target="_blank">Github</a>.</li>
+             <li> In case you did not know: <label>k</label> implies thousands, <label>kk</label> millions, <label>b</label> implies billions.</li> 
+            </ol>
             <div class="dsp_back_top">
               <label><a href="deoSpaceProgram/liftoffCalculator#radial">Radial Engines</a></label>
               <label><a href="deoSpaceProgram/liftoffCalculator#tiny">Tiny Engines</a></label>
@@ -43,43 +55,23 @@
                   </caption>
                   <tr>
                     <th><strong>Engine Name</strong></th>
-                    <th>Max Thrust<br>(1 ATM)</th>
-                    <th>Max Thrust<br> (Vac)</th>
-                    <th>Fuel Consumption</th>
                     <th># Necessary</th>
                     <th>Total Cost</th>
                   </tr>
                   <tr>
-                    <td><a href="http://wiki.kerbalspaceprogram.com/wiki/O-10_%22Puff%22_MonoPropellant_Fuel_Engine" target="_blank">O-10 <strong>"Puff"</strong> MonoPropellant Fuel Engine</a></td>
-                    <td>{{PUFF_MT_ATM}} kN</td>
-                    <td>{{PUFF_MT_VAC}} kN</td>
-                    <td>{{PUFF_FF}} kg/s</td>
-                    <td>{{puffAmount}}</td>
-                    <td>{{puffTotalCost}} <img src="/assets/ksp_money.png"></td>
-                  </tr>
-                  <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/24-77_%22Twitch%22_Liquid_Fuel_Engine" target="_blank">24-77 <strong>"Twitch"</strong> Liquid Fuel Engine</a></td>
-                    <td>{{TWITCH_MT_ATM}} kN</td>
-                    <td>{{TWITCH_MT_VAC}} kN</td>
-                    <td>{{TWITCH_FF}} kg/s</td>
-                    <td>{{twitchAmount}}</td>
-                    <td>{{twitchTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler twitchAmount}}</td>
+                    <td>{{counter-styler twitchTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/Mk-55_%22Thud%22_Liquid_Fuel_Engine" target="_blank">Mk-55 <strong>"Thud"</strong> Liquid Fuel Engine</a></td>
-                    <td>{{THUD_MT_ATM}} kN</td>
-                    <td>{{THUD_MT_VAC}} kN</td>
-                    <td>{{THUD_FF}} kg/s</td>
-                    <td>{{thudAmount}}</td>
-                    <td>{{thudTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler thudAmount}}</td>
+                    <td>{{counter-styler thudTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/LV-1R_%22Spider%22_Liquid_Fuel_Engine" target="_blank">LV-1R <strong>"Spider"</strong> Liquid Fuel Engine</a></td>
-                    <td>{{SPIDER_MT_ATM}} kN</td>
-                    <td>{{SPIDER_MT_VAC}} kN</td>
-                    <td>{{SPIDER_FF}} kg/s</td>
-                    <td>{{spiderAmount}}</td>
-                    <td>{{spiderTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler spiderAmount}}</td>
+                    <td>{{counter-styler spiderTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                 </table>
             </article>
@@ -92,27 +84,18 @@
                   </caption>
                   <tr>
                     <th><strong>Engine Name</strong></th>
-                    <th>Max Thrust<br>(1 ATM)</th>
-                    <th>Max Thrust<br> (Vac)</th>
-                    <th>Fuel Consumption</th>
                     <th># Necessary</th>
                     <th>Total Cost</th>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/48-7S_%22Spark%22_Liquid_Fuel_Engine" target="_blank">48-7S <strong>"Spark"</strong> Liquid Fuel Engine</a></td>
-                    <td>{{SPARK_MT_ATM}} kN</td>
-                    <td>{{SPARK_MT_VAC}} kN</td>
-                    <td>{{SPARK_FF}} kg/s</td>
-                    <td>{{sparkAmount}}</td>
-                    <td>{{sparkTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler sparkAmount}}</td>
+                    <td>{{counter-styler sparkTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/LV-1_%22Ant%22_Liquid_Fuel_Engine" target="_blank">LV-1 <strong>"Ant"</strong> Liquid Fuel Engine</a></td>
-                    <td>{{ANT_MT_ATM}} kN</td>
-                    <td>{{ANT_MT_VAC}} kN</td>
-                    <td>{{ANT_FF}} kg/s</td>
-                    <td>{{antAmount}}</td>
-                    <td>{{antTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler antAmount}}</td>
+                    <td>{{counter-styler antTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                 </table>
             </article>
@@ -124,67 +107,43 @@
                   </caption>
                   <tr>
                     <th><strong>Engine Name</strong></th>
-                    <th>Max Thrust<br>(1 ATM)</th>
-                    <th>Max Thrust<br> (Vac)</th>
-                    <th>Fuel Consumption</th>
                     <th># Necessary</th>
                     <th>Total Cost</th>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/LV-N_%22Nerv%22_Atomic_Rocket_Motor" target="_blank">LV-N <strong>"Nerv"</strong> Atomic Rocket Motor</a></td>
-                    <td>{{NERV_MT_ATM}} kN</td>
-                    <td>{{NERV_MT_VAC}} kN</td>
-                    <td>{{NERV_FF}} kg/s</td>
-                    <td>{{nervAmount}}</td>
-                    <td>{{nervTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler nervAmount}}</td>
+                    <td>{{counter-styler nervTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/T-1_Toroidal_Aerospike_%22Dart%22_Liquid_Fuel_Engine." target="_blank">T-1 Toroidal Aerospike <strong>"Dart"</strong> Liquid Fuel Engine.</a></td>
-                    <td>{{DART_MT_ATM}} kN</td>
-                    <td>{{DART_MT_VAC}} kN</td>
-                    <td>{{DART_FF}} kg/s</td>
-                    <td>{{dartAmount}}</td>
-                    <td>{{dartTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler dartAmount}}</td>
+                    <td>{{counter-styler dartTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/CR-7_R.A.P.I.E.R._Engine" target="_blank">CR-7 <strong>R.A.P.I.E.R.</strong> Engine</a></td>
-                    <td>{{RAPIER_MT_ATM}} kN</td>
-                    <td>{{RAPIER_MT_VAC}} kN</td>
-                    <td>{{RAPIER_FF}} kg/s</td>
-                    <td>{{rapierAmount}}</td>
-                    <td>{{rapierTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler rapierAmount}}</td>
+                    <td>{{counter-styler rapierTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/S3_KS-25_%22Vector%22_Liquid_Fuel_Engine" target="_blank">S3 KS-25 <strong>"Vector"</strong> Liquid Fuel Engine</a></td>
-                    <td>{{VECTOR_MT_ATM}} kN</td>
-                    <td>{{VECTOR_MT_VAC}} kN</td>
-                    <td>{{VECTOR_FF}} kg/s</td>
-                    <td>{{vectorAmount}}</td>
-                    <td>{{vectorTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler vectorAmount}}</td>
+                    <td>{{counter-styler vectorTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/LV-T45_%22Swivel%22_Liquid_Fuel_Engine" target="_blank">LV-T45 <strong>"Swivel"</strong> Liquid Fuel Engine</a></td>
-                    <td>{{SWIVEL_MT_ATM}} kN</td>
-                    <td>{{SWIVEL_MT_VAC}} kN</td>
-                    <td>{{SWIVEL_FF}} kg/s</td>
-                    <td>{{swivelAmount}}</td>
-                    <td>{{swivelTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler swivelAmount}}</td>
+                    <td>{{counter-styler swivelTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/LV-T30_%22Reliant%22_Liquid_Fuel_Engine" target="_blank">LV-T30 <strong>"Reliant"</strong> Liquid Fuel Engine</a></td>
-                    <td>{{RELIANT_MT_ATM}} kN</td>
-                    <td>{{RELIANT_MT_VAC}} kN</td>
-                    <td>{{RELIANT_FF}} kg/s</td>
-                    <td>{{reliantAmount}}</td>
-                    <td>{{reliantTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler reliantAmount}}</td>
+                    <td>{{counter-styler reliantTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/LV-909_%22Terrier%22_Liquid_Fuel_Engine" target="_blank">LV-909 <strong>"Terrier"</strong> Liquid Fuel Engine</a></td>
-                    <td>{{TERRIER_MT_ATM}} kN</td>
-                    <td>{{TERRIER_MT_VAC}} kN</td>
-                    <td>{{TERRIER_FF}} kg/s</td>
-                    <td>{{terrierAmount}}</td>
-                    <td>{{terrierTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler terrierAmount}}</td>
+                    <td>{{counter-styler terrierTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                 </table>
             </article>
@@ -196,43 +155,28 @@
                   </caption>
                   <tr>
                     <th><strong>Engine Name</strong></th>
-                    <th>Max Thrust<br>(1 ATM)</th>
-                    <th>Max Thrust<br> (Vac)</th>
-                    <th>Fuel Consumption</th>
                     <th># Necessary</th>
                     <th>Total Cost</th>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/LFB_KR-1x2_%22Twin-Boar%22_Liquid_Fuel_Engine" target="_blank">LFB KR-1x2 <strong>"Twin-Boar"</strong> Liquid Fuel Engine</a></td>
-                    <td>{{TWINBOAR_MT_ATM}} kN</td>
-                    <td>{{TWINBOAR_MT_VAC}} kN</td>
-                    <td>{{TWINBOAR_FF}} kg/s</td>
-                    <td>{{twinboarAmount}}</td>
-                    <td>{{twinboarTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler twinboarAmount}}</td>
+                    <td>{{counter-styler twinboarTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/RE-M3_%22Mainsail%22_Liquid_Engine" target="_blank">RE-M3 <strong>"Mainsail"</strong> Liquid Engine</a></td>
-                    <td>{{MAINSAL_MT_ATM}} kN</td>
-                    <td>{{MAINSAL_MT_VAC}} kN</td>
-                    <td>{{MAINSAL_FF}} kg/s</td>
-                    <td>{{mainsalAmount}}</td>
-                    <td>{{mainsalTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler mainsailAmount}}</td>
+                    <td>{{counter-styler mainsailTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/RE-I5_%22Skipper%22_Liquid_Fuel_Engine" target="_blank">RE-I5 <strong>"Skipper"</strong> Liquid Fuel Engine</a></td>
-                    <td>{{SKIPPER_MT_ATM}} kN</td>
-                    <td>{{SKIPPER_MT_VAC}} kN</td>
-                    <td>{{SKIPPER_FF}} kg/s</td>
-                    <td>{{skipperAmount}}</td>
-                    <td>{{skipperTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler skipperAmount}}</td>
+                    <td>{{counter-styler skipperTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/RE-L10_%22Poodle%22_Liquid_Fuel_Engine" target="_blank">RE-L10 <strong>"Poodle"</strong> Liquid Fuel Engine</a></td>
-                    <td>{{POODLE_MT_ATM}} kN</td>
-                    <td>{{POODLE_MT_VAC}} kN</td>
-                    <td>{{POODLE_FF}} kg/s</td>
-                    <td>{{poodleAmount}}</td>
-                    <td>{{poodleTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler poodleAmount}}</td>
+                    <td>{{counter-styler poodleTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                 </table>
             </article>
@@ -244,27 +188,18 @@
                   </caption>
                   <tr>
                     <th><strong>Engine Name</strong></th>
-                    <th>Max Thrust<br>(1 ATM)</th>
-                    <th>Max Thrust<br> (Vac)</th>
-                    <th>Fuel Consumption</th>
                     <th># Necessary</th>
                     <th>Total Cost</th>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/S3_KS-25x4_%22Mammoth%22_Liquid_Fuel_Engine" target="_blank">S3 KS-25x4 <strong>"Mammoth"</strong> Liquid Fuel Engine</a></td>
-                    <td>{{MAMMOTH_MT_ATM}} kN</td>
-                    <td>{{MAMMOTH_MT_VAC}} kN</td>
-                    <td>{{MAMMOTH_FF}} kg/s</td>
-                    <td>{{mammothAmount}}</td>
-                    <td>{{mammothTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler mammothAmount}}</td>
+                    <td>{{counter-styler mammothTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                   <tr>
                     <td><a href="http://wiki.kerbalspaceprogram.com/wiki/Kerbodyne_KR-2L%2B_%22Rhino%22_Liquid_Fuel_Engine" target="_blank">Kerbodyne KR-2L+ <strong>"Rhino"</strong> Liquid Fuel Engine</a></td>
-                    <td>{{RHINO_MT_ATM}} kN</td>
-                    <td>{{RHINO_MT_VAC}} kN</td>
-                    <td>{{RHINO_FF}} kg/s</td>
-                    <td>{{rhinoAmount}}</td>
-                    <td>{{rhinoTotalCost}} <img src="/assets/ksp_money.png"></td>
+                    <td>{{counter-styler rhinoAmount}}</td>
+                    <td>{{counter-styler rhinoTotalCost}} <img src="/assets/ksp_money.png"></td>
                   </tr>
                 </table>
             </article>
