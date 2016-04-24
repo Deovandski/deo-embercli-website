@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:archives', 'Unit | Route | DSP Missions', {
+moduleFor('route:archives', 'Unit | Route | DSP LiftOff Calculator', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

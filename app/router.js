@@ -41,7 +41,6 @@ Router.map(function() {
 	this.route('deoSpaceProgram', function() {
 		this.route('index', { path: '/' });
 		this.route('history');
-		this.route('kerbals');
 		this.route('liftoffCalculator');
 		this.route('copyright');
 	});
