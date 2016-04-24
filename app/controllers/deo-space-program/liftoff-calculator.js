@@ -123,13 +123,13 @@ export default Ember.Controller.extend({
     var engineAddedKN = (((engineWeight / 1000) + (engineFuelFlow * burnTime)) * 9.80665) / 1000;
     // Set Engine thrust based on where it will be flying.
     var engineThrust = 0;
-    if (TM_type = 0){
+    if (TM_type === 0){
       engineThrust = engineMTATM;
     }
-    else if (TM_type = 1){
+    else if (TM_type === 1){
       engineThrust = engineMTVAC;
     }
-    else if (TM_type = 2){
+    else if (TM_type === 2){
       engineThrust = ((engineMTATM + engineMTVAC) / 2);
     }
     else{
@@ -258,5 +258,5 @@ export default Ember.Controller.extend({
       this.set('mammothAmount',-1); this.set('mammothTotalCost',-1);
       this.set('rhinoAmount',-1); this.set('rhinoTotalCost',-1);
     }
-  }),
+  })
 });
