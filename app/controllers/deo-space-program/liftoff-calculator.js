@@ -27,29 +27,29 @@ export default Ember.Controller.extend({
   RHINO_MT_ATM: 1500, RHINO_MT_VAC: 2000, RHINO_COST: 25000, RHINO_FF: 599.02,
   
   // Radial Mounted Engine Constants (MT values are in KN.)
-  puffAmount: 0, puffTotalCost: 0,
-  thudAmount: 0, thudTotalCost: 0,
-  twitchAmount: 0, twitchTotalCost: 0,
-  spiderAmount: 0, spiderTotalCost: 0,
+  puffAmount: 0, puffTotalCost: 0, puffFuelNeeded: 0,
+  thudAmount: 0, thudTotalCost: 0, thudFuelNeeded: 0,
+  twitchAmount: 0, twitchTotalCost: 0, twitchFuelNeeded: 0,
+  spiderAmount: 0, spiderTotalCost: 0, spiderFuelNeeded: 0,
   // Tiny Mounted Engine Constants (MT values are in KN.)
-  sparkAmount: 0, sparkTotalCost: 0,
-  antAmount: 0, antTotalCost: 0,
+  sparkAmount: 0, sparkTotalCost: 0, sparkFuelNeeded: 0,
+  antAmount: 0, antTotalCost: 0, antFuelNeeded: 0,
   // Small Mounted Engine Constants (MT values are in KN.)
-  nervAmount: 0, nervTotalCost: 0,
-  dartAmount: 0, dartTotalCost: 0,
-  rapierAmount: 0, rapierTotalCost: 0,
-  vectorAmount: 0, vectorTotalCost: 0,
-  swivelAmount: 0, swivelTotalCost: 0,
-  reliantAmount: 0, reliantTotalCost: 0,
-  terrierAmount: 0, terrierTotalCost: 0,
+  nervAmount: 0, nervTotalCost: 0, nervFuelNeeded: 0,
+  dartAmount: 0, dartTotalCost: 0, dartFuelNeeded: 0,
+  rapierAmount: 0, rapierTotalCost: 0, rapierFuelNeeded: 0,
+  vectorAmount: 0, vectorTotalCost: 0, vectorFuelNeeded: 0,
+  swivelAmount: 0, swivelTotalCost: 0, swivelFuelNeeded: 0,
+  reliantAmount: 0, reliantTotalCost: 0, reliantFuelNeeded: 0,
+  terrierAmount: 0, terrierTotalCost: 0, terrierFuelNeeded: 0,
   // Large Mounted Engine Constants (MT values are in KN.)
-  twinboarAmount: 0, twinboarTotalCost: 0,
-  mainsalAmount: 0, mainsalTotalCost: 0,
-  skipperAmount: 0, skipperTotalCost: 0,
-  poodleAmount: 0, poodleTotalCost: 0,
+  twinboarAmount: 0, twinboarTotalCost: 0, twinboarFuelNeeded: 0,
+  mainsalAmount: 0, mainsalTotalCost: 0, mainsalFuelNeeded: 0,
+  skipperAmount: 0, skipperTotalCost: 0, skipperFuelNeeded: 0,
+  poodleAmount: 0, poodleTotalCost: 0, poodleFuelNeeded: 0,
   // Extra Large Mounted Engine Constants (MT values are in KN.)
-  mammothAmount: 0, mammothTotalCost: 0,
-  rhinoAmount: 0, rhinoTotalCost: 0,
+  mammothAmount: 0, mammothTotalCost: 0, mammotFuelNeeded: 0,
+  rhinoAmount: 0, rhinoTotalCost: 0,rhinoFuelNeeded: 0,
 
   // Selected Body control
   selectedBodyName: 'Kerbin',
