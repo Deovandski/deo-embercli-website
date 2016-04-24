@@ -1,14 +1,20 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  // Radial Mounted Engine Constants (MT values are in KN.)
+  
+  /* CONSTANTS FOR ALL ENGINES
+   * x_MT_ATM (1 atm Max Thrust) and x_MT_VAC (Vaccum Max Thrust) constants are in kN
+   * x_FF (Max Fuel Flow) constant is in kg/s.
+   * x_MASS is the Dry Weight of the engine, and it is in tons.
+  */
+  // Radial Mounted Engine
   THUD_MT_ATM: 108.20, THUD_MT_VAC: 120, THUD_COST: 820, THUD_FF: 40.07, THUD_MASS: 0.90,
   TWITCH_MT_ATM: 13.793, TWITCH_MT_VAC: 16, TWITCH_COST: 400, TWITCH_FF: 5.62, TWITCH_MASS: 0.09,
   SPIDER_MT_ATM: 1.793, SPIDER_MT_VAC: 2, SPIDER_COST: 120, SPIDER_FF: 0.70, SPIDER_MASS: 0.02,
-  // Tiny Mounted Engine Constants (MT values are in KN.)
+  // Tiny Mounted Engine
   SPARK_MT_ATM: 16.2, SPARK_MT_VAC: 18, SPARK_COST: 200, SPARK_FF: 6.11, SPARK_MASS: 0.10,
   ANT_MT_ATM: 0.51, ANT_MT_VAC: 2, ANT_COST: 110,  ANT_FF: 0.65, ANT_MASS: 0.02,
-  // Small Mounted Engine Constants (MT values are in KN.)
+  // Small Mounted Engine
   NERV_MT_ATM: 13.875, NERV_MT_VAC: 60, NERV_COST: 10000, NERV_FF: 7.64, NERV_MASS: 3.00,
   DART_MT_ATM: 153.53, DART_MT_VAC: 180, DART_COST: 3850, DART_FF: 53.91, DART_MASS: 1.0,
   RAPIER_MT_ATM: 162.30, RAPIER_MT_VAC: 180, RAPIER_COST: 6000, RAPIER_FF: 60.10, RAPIER_MASS: 2.00,
@@ -16,23 +22,27 @@ export default Ember.Controller.extend({
   SWIVEL_MT_ATM: 168.75, SWIVEL_MT_VAC: 200, SWIVEL_COST: 1200, SWIVEL_FF: 63.65, SWIVEL_MASS: 1.50,
   RELIANT_MT_ATM: 200.67, RELIANT_MT_VAC: 215, RELIANT_COST: 1100, RELIANT_FF: 72.98, RELIANT_MASS: 1.25,
   TERRIER_MT_ATM: 14.783, TERRIER_MT_VAC: 60, TERRIER_COST: 390, TERRIER_FF: 17.71, TERRIER_MASS: 0.50,
-  // Large Mounted Engine Constants (MT values are in KN.)
+  // Large Mounted Engine
   TWINBOAR_MT_ATM: 18667, TWINBOAR_MT_VAC: 2000, TWINBOAR_COST: 17000, TWINBOAR_FF: 678.89, TWINBOAR_MASS: 42.50,
   MAINSAIL_MT_ATM: 1379.03, MAINSAIL_MT_VAC: 1500, MAINSAIL_COST: 13000, MAINSAIL_FF: 492.74, MAINSAIL_MASS: 6,
   SKIPPER_MT_ATM: 568.75, SKIPPER_MT_VAC: 650, SKIPPER_COST: 5300, SKIPPER_FF: 206.85, SKIPER_MASS: 3.00,
   POODLE_MT_ATM: 64.29, POODLE_MT_VAC: 250, POODLE_COST: 1300,  POODLE_FF: 72.74, POODLE_MASS: 1.75,
-  // Extra Large Mounted Engine Constants (MT values are in KN.)
+  // Extra Large Mounted
   MAMMOTH_MT_ATM: 3746, MAMMOTH_MT_VAC: 4000, MAMMOTH_COST: 39000,  MAMMOTH_FF: 1293.12, MAMMOTH_MASS: 15.00,
   RHINO_MT_ATM: 1500, RHINO_MT_VAC: 2000, RHINO_COST: 25000, RHINO_FF: 599.02, RHINO_MASS: 9.00,
   
-  // Radial Mounted Engine Constants (MT values are in KN.)
+  /* VARIABLES FOR ALL ENGINES BEING DISPLAYED ON VIEW.
+   * xAmount is the # of engines.
+   * xTotalCost is the cost of the # of engines only!
+  */
+  // Radial Mounted Engine
   thudAmount: 0, thudTotalCost: 0,
   twitchAmount: 0, twitchTotalCost: 0,
   spiderAmount: 0, spiderTotalCost: 0,
-  // Tiny Mounted Engine Constants (MT values are in KN.)
+  // Tiny Mounted Engine
   sparkAmount: 0, sparkTotalCost: 0,
   antAmount: 0, antTotalCost: 0,
-  // Small Mounted Engine Constants (MT values are in KN.)
+  // Small Mounted Engine
   nervAmount: 0, nervTotalCost: 0,
   dartAmount: 0, dartTotalCost: 0,
   rapierAmount: 0, rapierTotalCost: 0,
@@ -40,12 +50,12 @@ export default Ember.Controller.extend({
   swivelAmount: 0, swivelTotalCost: 0,
   reliantAmount: 0, reliantTotalCost: 0,
   terrierAmount: 0, terrierTotalCost: 0,
-  // Large Mounted Engine Constants (MT values are in KN.)
+  // Large Mounted Engine
   twinboarAmount: 0, twinboarTotalCost: 0,
   mainsailAmount: 0, mainsailTotalCost: 0,
   skipperAmount: 0, skipperTotalCost: 0,
   poodleAmount: 0, poodleTotalCost: 0,
-  // Extra Large Mounted Engine Constants (MT values are in KN.)
+  // Extra Large Mounted Engine
   mammothAmount: 0, mammothTotalCost: 0,
   rhinoAmount: 0, rhinoTotalCost: 0,
 
@@ -110,16 +120,21 @@ export default Ember.Controller.extend({
             break;
     }
 	}),
-  // TWR vars.
+  
+  // USER INPUT vars.
   vesselWeight: 50, //tones
-  desiredTWR: 2,
+  desiredTWR: 2, // Ratio
   TWR_vac: false,
   TWR_atm: true,
-  burnTime: 60,
+  burnTime: 60, // Seconds
   
   // Calculate necessary engines based on user Input and engine constants.
   calculateEnginesReqs: function(engineWeight, engineFuelFlow, engineMTVAC, engineMTATM, burnTime, desiredTWR, vesselWeight, bodyGravity, TM_type){
-    // Convert Kg to Newtons, then to KiloNewtons
+    /* 1. Transform Engine Dry Weight into kg.
+     * 2. Find the amount of fuel necessary in order to keep the engine burning for x seconds
+     * 3. Add steps #1 and #2 and convert kg to Newtons.
+     * 4. Convert Newtons to kN 
+    */
     var engineAddedKN = (((engineWeight / 1000) + (engineFuelFlow * burnTime)) * 9.80665) / 1000;
     // Set Engine thrust based on where it will be flying.
     var engineThrust = 0;
@@ -135,12 +150,11 @@ export default Ember.Controller.extend({
     else{
       engineThrust = 0;
     }
-    // End calculation if Engine cannot self-sustain let alone carry a fair amount of weight...
-    if ((engineAddedKN * 1.05) > engineThrust){
-      return -1;
-    }
-    // Add each engine 
-    else{
+    /* If 95% of the Engine Thrust can liftoff the added kN, keep adding engines
+     * until fulfill knNeeded. Otherwise, end calculation and return -1...
+    */
+    if ((engineThrust * 0.95) > engineAddedKN){
+      // Find the kN of the Dry Vessel Mass based on selected body and desired Thrust to Weight Ratio.
       var knNeeded = vesselWeight * bodyGravity * desiredTWR;
       var enginesNeeded = 0;
       while(knNeeded > 0){
@@ -150,18 +164,19 @@ export default Ember.Controller.extend({
       }
       return enginesNeeded;
     }
+    else{
+      return -1;
+    }
   },
   enginesReqsWatcher: Ember.computed('selectedBodyGravity', 'vesselWeight', 'desiredTWR', 'TWR_vac', 'TWR_atm','burnTime', function() {
-    // Offload the huge verification on the second IF statement.
+    // Offload the shared verifications performed on the second IF statement.
     var commonVerification = false;
-    if (this.get('selectedBodyGravity') > 0 && this.get('vesselWeight') > 0 && this.get('vesselWeight') < 1000000000 && this.get('desiredTWR') > 0 && this.get('desiredTWR') < 1000 && this.get('burnTime') > 0 && this.get('burnTime') < 550){commonVerification = true;}
+    if (this.get('selectedBodyGravity') > 0 && this.get('vesselWeight') > 0 && this.get('vesselWeight') < 1000000000 && this.get('desiredTWR') > 0 && this.get('desiredTWR') < 1000 && this.get('burnTime') > 0 && this.get('burnTime') < 550){
+      commonVerification = true;
+    }
     
     // If vac or atm is seleted, perform the calc.
     if (commonVerification === true && this.get('TWR_vac') === true || commonVerification === true && this.get('TWR_atm') === true){
-      // Setup what the user needs in kN
-      var kn = this.get('selectedBodyGravity') * this.get('vesselWeight') * this.get('desiredTWR');
-      this.set('kiloNewtonsNeeded', kn);
-      
       // Type of TM selection
       /*
        * 0 = TWR_MT_ATM
