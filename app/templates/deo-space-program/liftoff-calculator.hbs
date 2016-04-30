@@ -33,25 +33,22 @@
               <article id="recommendations">
                   <table class="liftoff_table">
                     <caption>
-                      Recommended Engines Table
+                      Recommended Engines
                     </caption>
                     <tr>
-                      <th><strong>Recommendation</strong></th>
                       <th><strong>Engine Name</strong></th>
                       <th># Necessary</th>
                       <th>Total Cost</th>
                     </tr>
                     <tr>
-                      <td>By # needed</td>
                       <td><strong>{{lowestAmountName}}</strong></td>
-                      <td>{{counter-styler lowestAmountNeeded}}</td>
-                      <td>{{counter-styler lowestAmountCost}} <img src="/assets/ksp_money.png"></td>
+                      <td class="highlighter">{{counter-styler lowestAmountNeeded}}</td>
+                      <td class="unhighlighter">{{counter-styler lowestAmountCost}} <img src="/assets/ksp_money.png"></td>
                     </tr>
                     <tr>
-                      <td>By Total Cost</td>
                       <td><strong>{{cheapestName}}</strong></td>
-                      <td>{{counter-styler cheapestNeeded}}</td>
-                      <td>{{counter-styler cheapestCost}} <img src="/assets/ksp_money.png"></td>
+                      <td class="unhighlighter">{{counter-styler cheapestNeeded}}</td>
+                      <td class="highlighter">{{counter-styler cheapestCost}} <img src="/assets/ksp_money.png"></td>
                     </tr>
                   </table>
               </article>

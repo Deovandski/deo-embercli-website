@@ -199,6 +199,12 @@ $dsp-background-color: hsla(190, 70%, 60%, 0.97);
 		}
 	}
 }
+.highlighter{
+	background: darken(hsla(150, 70%, 61%, 1), 20%);
+}
+.unhighlighter{
+	background: lighten(hsla(189, 100%, 0%, 0.6), 50%);
+}
 .dsp_select_label{
 	float:left;
 	margin-right:5px;
