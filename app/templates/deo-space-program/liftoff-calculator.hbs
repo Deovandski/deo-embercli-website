@@ -28,6 +28,34 @@
             <p><label>Desired TWR:</label> {{input type="number" placeholder=2 value=desiredTWR}} Thrust to Weight.</p>
             <p><label>Burn Time (Full Throttle):</label> {{input type="number" placeholder=60 value=burnTime}} Seconds.</p>
             <p>Stage will be used on: <label class="dsp_checkbox">Vaccum: {{input type="checkbox" checked=TWR_vac}}</label>  <label class="dsp_checkbox">Atmosphere: {{input type="checkbox" checked=TWR_atm}} (1 atm)</label></p>
+            
+            {{#if showRecommendations}}
+              <article id="recommendations">
+                  <table class="liftoff_table">
+                    <caption>
+                      Recommended Engines Table
+                    </caption>
+                    <tr>
+                      <th><strong>Recommendation</strong></th>
+                      <th><strong>Engine Name</strong></th>
+                      <th># Necessary</th>
+                      <th>Total Cost</th>
+                    </tr>
+                    <tr>
+                      <td>By # needed</td>
+                      <td><strong>{{lowestAmountName}}</strong></td>
+                      <td>{{counter-styler lowestAmountNeeded}}</td>
+                      <td>{{counter-styler lowestAmountCost}} <img src="/assets/ksp_money.png"></td>
+                    </tr>
+                    <tr>
+                      <td>By Total Cost</td>
+                      <td><strong>{{cheapestName}}</strong></td>
+                      <td>{{counter-styler cheapestNeeded}}</td>
+                      <td>{{counter-styler cheapestCost}} <img src="/assets/ksp_money.png"></td>
+                    </tr>
+                  </table>
+              </article>
+            {{/if}}
             <p><label>Quick Notes:</label></p>
             <ol>
             <li>Approximated values.

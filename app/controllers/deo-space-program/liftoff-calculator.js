@@ -59,6 +59,11 @@ export default Ember.Controller.extend({
   mammothAmount: 0, mammothTotalCost: 0,
   rhinoAmount: 0, rhinoTotalCost: 0,
 
+  // Recommend engines
+  lowestAmountNeeded: 0, lowestAmountCost: 0, lowestAmountName: 0,
+  cheapestNeeded: 0, cheapestCost: 0, cheapestName: 0,
+  showRecommendations: false,
+
   // Selected Body control
   selectedBodyName: 'Kerbin',
   KSP_BODIES: ["Kerbin", "Mum", "Minmus", "Moho", "Eve",
@@ -247,6 +252,149 @@ export default Ember.Controller.extend({
       this.set('mammothAmount',mammothCalculatedAmount); if(mammothCalculatedAmount > 0){this.set('mammothTotalCost',this.get('mammothAmount')*this.get('MAMMOTH_COST'));} else{this.set('mammothTotalCost',-1);}
       this.set('rhinoAmount',rhinoCalculatedAmount); if(rhinoCalculatedAmount > 0){this.set('rhinoTotalCost',this.get('rhinoAmount')*this.get('RHINO_COST'));} else{this.set('rhinoTotalCost',-1);}
     
+      // Recommend engines
+      
+      var lowestAmountNeededArray = [thudCalculatedAmount,
+      twitchCalculatedAmount,spiderCalculatedAmount,antCalculatedAmount,
+      nervCalculatedAmount,dartCalculatedAmount,rapierCalculatedAmount,
+      vectorCalculatedAmount,swivelCalculatedAmount,reliantCalculatedAmount,
+      terrierCalculatedAmount, twinboarCalculatedAmount, mainsailCalculatedAmount,
+      skipperCalculatedAmount, poodleCalculatedAmount, rhinoCalculatedAmount];
+      
+      var lowestCostArray = [this.get('thudTotalCost'),
+      this.get('twitchTotalCost'),this.get('spiderTotalCost'),this.get('antTotalCost'),
+      this.get('nervTotalCost'),this.get('dartTotalCost'),this.get('rapierTotalCost'),
+      this.get('vectorTotalCost'),this.get('swivelTotalCost'),this.get('reliantTotalCost'),
+      this.get('terrierTotalCost'), this.get('twinboarTotalCost'), this.get('mainsailTotalCost'),
+      this.get('skipperTotalCost'), this.get('poodleTotalCost'), this.get('rhinoTotalCost')];
+      
+      var lam = Number.MAX_VALUE;
+      for (var i = 0; i < lowestAmountNeededArray.length; i++) {
+        lam = Math.min(lam, lowestAmountNeededArray[i]);
+      }
+      var lc = Number.MAX_VALUE;
+      for (var m = 0; m < lowestCostArray.length; m++) {
+        lc = Math.min(lc, lowestCostArray[m]);
+      }
+      
+      if (thudCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',thudCalculatedAmount); this.set('lowestAmountCost',this.get('thudTotalCost')); this.set('lowestAmountName',"Thud");
+      }
+      else if (twitchCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',twitchCalculatedAmount); this.set('lowestAmountCost',this.get('twitchTotalCost')); this.set('lowestAmountName',"Twitch");
+      }
+      else if (spiderCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',spiderCalculatedAmount); this.set('lowestAmountCost',this.get('spiderTotalCost')); this.set('lowestAmountName',"Spider");
+      }
+      else if (sparkCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',sparkCalculatedAmount); this.set('lowestAmountCost',this.get('sparkTotalCost')); this.set('lowestAmountName',"Spark");
+      }
+      else if (antCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',antCalculatedAmount); this.set('lowestAmountCost',this.get('antTotalCost')); this.set('lowestAmountName',"Ant");
+      }
+      else if (nervCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',nervCalculatedAmount); this.set('lowestAmountCost',this.get('nervTotalCost')); this.set('lowestAmountName',"Nerv");
+      }
+      else if (dartCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',dartCalculatedAmount); this.set('lowestAmountCost',this.get('dartTotalCost')); this.set('lowestAmountName',"Dart");
+      }
+      else if (rapierCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',rapierCalculatedAmount); this.set('lowestAmountCost',this.get('rapierTotalCost')); this.set('lowestAmountName',"Rapier");
+      }
+      else if (vectorCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',vectorCalculatedAmount); this.set('lowestAmountCost',this.get('vectorTotalCost')); this.set('lowestAmountName',"Vector");
+      }
+      else if (swivelCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',swivelCalculatedAmount); this.set('lowestAmountCost',this.get('swivelTotalCost')); this.set('lowestAmountName',"Swivel");
+      }
+      else if (reliantCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',reliantCalculatedAmount); this.set('lowestAmountCost',this.get('reliantTotalCost')); this.set('lowestAmountName',"Reliant");
+      }
+      else if (terrierCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',terrierCalculatedAmount); this.set('lowestAmountCost',this.get('terrierTotalCost')); this.set('lowestAmountName',"Terrier");
+      }
+      else if (twinboarCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',twinboarCalculatedAmount); this.set('lowestAmountCost',this.get('twinboarTotalCost')); this.set('lowestAmountName',"Twinboar");
+      }
+      else if (mainsailCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',mainsailCalculatedAmount); this.set('lowestAmountCost',this.get('mainsailTotalCost')); this.set('lowestAmountName',"Mainsal");
+      }
+      else if (skipperCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',skipperCalculatedAmount); this.set('lowestAmountCost',this.get('skipperTotalCost')); this.set('lowestAmountName',"Skipper");
+      }
+      else if (poodleCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',poodleCalculatedAmount); this.set('lowestAmountCost',this.get('poodleTotalCost')); this.set('lowestAmountName',"Poodle");
+      }
+      else if (mammothCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',mammothCalculatedAmount); this.set('lowestAmountCost',this.get('mammothTotalCost')); this.set('lowestAmountName',"Mammoth");
+      }
+      else if (rhinoCalculatedAmount === lam){
+        this.set('lowestAmountNeeded',rhinoCalculatedAmount); this.set('lowestAmountCost',this.get('rhinoTotalCost')); this.set('lowestAmountName',"Rhino");
+      }
+      else{
+        this.set('lowestAmountNeeded',-1); this.set('lowestAmountCost',-1); this.set('lowestAmountName',"None");
+      }
+      
+      // lowest Cost finder
+      if (this.get('thudTotalCost') === lc){
+        this.set('cheapestNeeded',thudCalculatedAmount); this.set('cheapestCost',this.get('thudTotalCost')); this.set('cheapestName',"Thud");
+      }
+      else if (this.get('twitchTotalCost') === lc){
+        this.set('cheapestNeeded',twitchCalculatedAmount); this.set('cheapestCost',this.get('twitchTotalCost')); this.set('cheapestName',"Twitch");
+      }
+      else if (this.get('spiderTotalCost') === lc){
+        this.set('cheapestNeeded',spiderCalculatedAmount); this.set('cheapestCost',this.get('spiderTotalCost')); this.set('cheapestName',"Spider");
+      }
+      else if (this.get('sparkTotalCost') === lc){
+        this.set('cheapestNeeded',sparkCalculatedAmount); this.set('cheapestCost',this.get('sparkTotalCost')); this.set('cheapestName',"Spark");
+      }
+      else if (this.get('antTotalCost') === lc){
+        this.set('cheapestNeeded',antCalculatedAmount); this.set('cheapestCost',this.get('antTotalCost')); this.set('cheapestName',"Ant");
+      }
+      else if (this.get('nervTotalCost') === lc){
+        this.set('cheapestNeeded',nervCalculatedAmount); this.set('cheapestCost',this.get('nervTotalCost')); this.set('cheapestName',"Nerv");
+      }
+      else if (this.get('dartTotalCost') === lc){
+        this.set('cheapestNeeded',dartCalculatedAmount); this.set('cheapestCost',this.get('dartTotalCost')); this.set('cheapestName',"Dart");
+      }
+      else if (this.get('rapierTotalCost') === lc){
+        this.set('cheapestNeeded',rapierCalculatedAmount); this.set('cheapestCost',this.get('rapierTotalCost')); this.set('cheapestName',"Rapier");
+      }
+      else if (this.get('vectorTotalCost') === lc){
+        this.set('cheapestNeeded',vectorCalculatedAmount); this.set('cheapestCost',this.get('vectorTotalCost')); this.set('cheapestName',"Vector");
+      }
+      else if (this.get('swivelTotalCost') === lc){
+        this.set('cheapestNeeded',swivelCalculatedAmount); this.set('cheapestCost',this.get('swivelTotalCost')); this.set('cheapestName',"Swivel");
+      }
+      else if (this.get('reliantTotalCost') === lc){
+        this.set('cheapestNeeded',reliantCalculatedAmount); this.set('cheapestCost',this.get('reliantTotalCost')); this.set('cheapestName',"Reliant");
+      }
+      else if (this.get('terrierTotalCost') === lc){
+        this.set('cheapestNeeded',terrierCalculatedAmount); this.set('cheapestCost',this.get('terrierTotalCost')); this.set('cheapestName',"Terrier");
+      }
+      else if (this.get('twinboarTotalCost') === lc){
+        this.set('cheapestNeeded',twinboarCalculatedAmount); this.set('cheapestCost',this.get('twinboarTotalCost')); this.set('cheapestName',"Twinboar");
+      }
+      else if (this.get('mainsailTotalCost') === lc){
+        this.set('cheapestNeeded',mainsailCalculatedAmount); this.set('cheapestCost',this.get('mainsailTotalCost')); this.set('cheapestName',"Mainsal");
+      }
+      else if (this.get('skipperTotalCost') === lc){
+        this.set('cheapestNeeded',skipperCalculatedAmount); this.set('cheapestCost',this.get('skipperTotalCost')); this.set('cheapestName',"Skipper");
+      }
+      else if (this.get('poodleTotalCost') === lc){
+        this.set('cheapestNeeded',poodleCalculatedAmount); this.set('cheapestCost',this.get('poodleTotalCost')); this.set('cheapestName',"Poodle");
+      }
+      else if (this.get('mammothTotalCost') === lc){
+        this.set('cheapestNeeded',mammothCalculatedAmount); this.set('cheapestCost',this.get('mammothTotalCost')); this.set('cheapestName',"Mammoth");
+      }
+      else if (this.get('rhinoTotalCost') === lc){
+        this.set('cheapestNeeded',rhinoCalculatedAmount); this.set('cheapestCost',this.get('rhinoTotalCost')); this.set('cheapestName',"Rhino");
+      }
+      else{
+        this.set('cheapestNeeded',-1); this.set('cheapestCost',-1); this.set('cheapestName',"None");
+      }
+      
+      this.set('showRecommendations',true);
     }
     else{
       // Clears up value due to bad search...
@@ -274,6 +422,12 @@ export default Ember.Controller.extend({
       // Extra Large Mounted Engine
       this.set('mammothAmount',-1); this.set('mammothTotalCost',-1);
       this.set('rhinoAmount',-1); this.set('rhinoTotalCost',-1);
+      
+      // Recommend engines
+      this.set('lowestAmountNeeded',-1); this.set('lowestAmountCost',-1); this.set('lowestAmountName',"None");
+      this.set('cheapestNeeded',-1); this.set('cheapestCost',-1); this.set('cheapestName',"None");
+      this.set('showRecommendations',false);
+      
     }
   })
 });
