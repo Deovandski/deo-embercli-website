@@ -43,9 +43,9 @@ Something not working after update? Compare diffs and let me know what I missed 
 
 ## License
 
-[The MIT License (MIT)](Documents/License.md)
+[The MIT License (MIT)](LICENSE)
 
-Copyright (c) 2016, Deovandski Skibinski Junior. All rights reserved to the code. For copyright enquiries or notification, please contact deovandski@outlook.com so that I can take the necessary actions.
+Copyright (c) 2016, 2017, Deovandski Skibinski Junior.
 
 [travis]: https://travis-ci.org/Deovandski/DeoPersonalWebsite
 [travis-badge]: https://travis-ci.org/Deovandski/DeoPersonalWebsite.svg?branch=master
