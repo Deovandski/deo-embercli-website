@@ -2,8 +2,6 @@
 
 [![Build Status][travis-badge]][travis] [![Test Coverage][testCoverage-badge]][testCoverage] [![Code Climate][codeClimate-badge]][codeClimate] [![Dependency Status][dependency-badge]][dependency] [![Security][security-badge]][security] [![Issues][issues-badge]][issues]
 
-[Live Website](https://deovandski.herokuapp.com/) (Initial load may be slow due to Dyno sleep mode implemented by [Heroku](https://www.heroku.com/pricing).)
-
 This website was created for the purpose to host all kinds of stuff about myself including any code or small project that I created over the years...
 
 ## Requirements
